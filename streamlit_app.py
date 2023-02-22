@@ -32,10 +32,8 @@ rows = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIMIT 10")
 for row in rows:
     st.write(row['indicator_name'])
 
-    QUERY = '''
-SELECT *
-FROM `your-project-id.your-dataset-id.your-table-id`
-'''
+    
+QUERY = "SELECT * FROM `your-project-id.your-dataset-id.your-table-id`"
 
 # Ejecutar la consulta y obtener los resultados como DataFrame de Pandas
 df = client.query(QUERY).to_dataframe()
@@ -43,4 +41,4 @@ df = client.query(QUERY).to_dataframe()
 # Mostrar los resultados en Streamlit
 st.write(df)
 
-pd.read_gbq("SELECT * FROM `pi-soy-henry.migrations.indicadores`", credentials=credentials)
+print(pd.read_gbq("SELECT * FROM `pi-soy-henry.migrations.indicadores`", credentials=credentials))

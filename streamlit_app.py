@@ -28,8 +28,8 @@ for row in rows:
 # Ejemplo de consulta SQL
 query = '''
 SELECT *
-FROM `hechos`
-LIMIT 10
+FROM `pi-soy-henry.migrations.hechos` 
+LIMIT 1000
 '''
 
 # Ejecuta la consulta y almacena los resultados en un dataframe de Pandas

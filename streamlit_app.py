@@ -24,3 +24,13 @@ rows = run_query("SELECT word FROM `bigquery-public-data.samples.shakespeare` LI
 st.write("Some wise words from Shakespeare:")
 for row in rows:
     st.write("✍️ " + row['word'])
+
+# Ejemplo de consulta SQL
+query = '''
+SELECT *
+FROM `tu_base_de_datos.tu_tabla`
+LIMIT 10
+'''
+
+# Ejecuta la consulta y almacena los resultados en un dataframe de Pandas
+df = client.query(query).to_dataframe()

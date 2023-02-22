@@ -38,4 +38,4 @@ SELECT * FROM `pi-soy-henry.migrations.indicadores`
 """
 df = pandas_gbq.read_gbq(sql, project_id='pi-soy-henry')
 
-print(df)
+st.write(df)

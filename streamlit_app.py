@@ -1,6 +1,7 @@
 import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
+import pandas as pd
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
@@ -30,3 +31,14 @@ rows = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIMIT 10")
 
 for row in rows:
     st.write(row['indicator_name'])
+
+    QUERY = '''
+SELECT *
+FROM `your-project-id.your-dataset-id.your-table-id`
+'''
+
+# Ejecutar la consulta y obtener los resultados como DataFrame de Pandas
+df = client.query(QUERY).to_dataframe()
+
+# Mostrar los resultados en Streamlit
+st.write(df)

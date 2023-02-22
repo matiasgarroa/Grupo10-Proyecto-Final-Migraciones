@@ -26,7 +26,7 @@ for row in rows:
     st.write("✍️ " + row['word'])
 
 # Ejemplo de consulta SQL
-query = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIMIT 10")
+row = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIMIT 10")
 
-for query in rows:
-    st.write(query['indicator_name'])
+for row in rows:
+    st.write(row['indicator_name'])

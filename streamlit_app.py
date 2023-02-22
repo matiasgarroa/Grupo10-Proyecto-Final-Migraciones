@@ -26,11 +26,7 @@ for row in rows:
     st.write("✍️ " + row['word'])
 
 # Ejemplo de consulta SQL
-query = '''
-SELECT *
-FROM `pi-soy-henry.migrations.hechos` 
-LIMIT 1000
-'''
+query = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIMIT 10")
 
-# Ejecuta la consulta y almacena los resultados en un dataframe de Pandas
-df = client.query(query).to_dataframe()
+for query in rows:
+    st.write(query['indicator_name'])

@@ -42,3 +42,5 @@ df = client.query(QUERY).to_dataframe()
 
 # Mostrar los resultados en Streamlit
 st.write(df)
+
+pd.read_gbq("SELECT * FROM `pi-soy-henry.migrations.indicadores`", credentials=credentials)

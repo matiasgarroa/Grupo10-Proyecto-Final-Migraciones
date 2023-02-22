@@ -2,6 +2,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 import pandas as pd
+import pandas_gbq
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
@@ -32,8 +33,9 @@ rows = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIMIT 10")
 for row in rows:
     st.write(row['indicator_name'])
 
+sql = """
+SELECT * FROM `pi-soy-henry.migrations.indicadores`
+"""
+df = pandas_gbq.read_gbq(sql, project_id='pi-soy-henry')
 
-
-dataf = pd.read_gbq("SELECT * FROM `pi-soy-henry.migrations.indicadores`", credentials=credentials)
-
-print(dataf)
+print(df)

@@ -28,7 +28,7 @@ for row in rows:
 # Ejemplo de consulta SQL
 query = '''
 SELECT *
-FROM `tu_base_de_datos.tu_tabla`
+FROM `hechos`
 LIMIT 10
 '''
 

@@ -20,17 +20,18 @@ SELECT * FROM `pi-soy-henry.migrations.hechos`
 """
 hechos = pandas_gbq.read_gbq(sql_hechos, project_id='pi-soy-henry')
 
-# Define los widgets de la sección izquierda
-st.sidebar.title("Sección izquierda")
-name = st.sidebar.text_input("Ingresa tu nombre")
-age = st.sidebar.number_input("Ingresa tu edad")
+####################
+### INTRODUCCIÓN ###
+####################
 
-# Define los widgets de la sección derecha
-st.title("Sección derecha")
-color = st.selectbox("¿Cuál es tu color favorito?", ["Rojo", "Azul", "Verde"])
-animal = st.selectbox("¿Cuál es tu animal favorito?", ["Perro", "Gato", "Pájaro"])
-
-# Muestra los resultados
-st.write("Hola, " + name + "!")
-st.write("Tienes " + str(age) + " años.")
-st.write("Tu color favorito es " + color + " y tu animal favorito es el " + animal + ".")
+row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
+with row0_1:
+    st.title('Grupo10 - Analizador de Migraciones')
+with row0_2:
+    st.text("")
+    st.subheader('Streamlit App')
+row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
+with row3_1:
+    st.markdown("Hola! La migración es un fenómeno global que afecta a muchas personas en todo el mundo. Hay muchas razones por las que la gente decide emigrar, incluyendo motivos económicos, políticos, sociales y de seguridad. Algunos de los desafíos más comunes que enfrentan los migrantes incluyen la discriminación, la falta de recursos, apoyo, y la separación de sus seres queridos. ")
+    st.markdown("Queremos proporcionarte una herramienta útil y accesible, para ayudarte tomar decisiones informadas sobre tu destino de emigración.")
+    st.markdown("Podrás encontrar el codigo fuente en [PF Henry GitHub Repository](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones)")

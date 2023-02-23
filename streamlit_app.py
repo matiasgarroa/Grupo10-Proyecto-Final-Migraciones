@@ -87,6 +87,8 @@ with row3_1:
     st.markdown("Podrás encontrar el codigo fuente en [PF Henry GitHub Repository](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones)")
 
 st.write(hechos.head(1))
+st.write(hechos.head(1) == hechos['anio'].max())
+st.write(hechos.head(1) == hechos['anio'].min())
 
 #################
 ### SELECTION ###

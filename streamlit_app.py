@@ -2,7 +2,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 import pandas as pd
-import pandas_gbq
+import numpy as np
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
@@ -19,6 +19,22 @@ def run_query(query):
     # Convert to list of dicts. Required for st.cache_data to hash the return value.
     rows = [dict(row) for row in rows_raw]
     return rows
+
+#Importamos datos
+indicadores = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores`")
+indicadores = pd.DataFrame(indicadores)
+
+hechos = run_query("SELECT * FROM `pi-soy-henry.migrations.hechos`")
+hechos = pd.DataFrame(hechos)
+
+
+### Helper Methods ###
+def get_unique_dates(df_data):
+    #returns unique dates list in the form "YEAR" for labels
+    unique_date = np.unique(df_data.anio).tolist()
+    return unique_date
+
+
 
 ####################
 ### INTRODUCCIÓN ###
@@ -44,16 +60,7 @@ st.sidebar.text('')
 st.sidebar.text('')
 st.sidebar.text('')
 
-# Ejemplo de consulta SQL
-rows = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIMIT 10")
-
-for row in rows:
-    st.write(row['indicator_name'])
-
-indicadores = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores`")
-indicadores = pd.DataFrame(indicadores)
-st.write(indicadores)
-
-hechos = run_query("SELECT * FROM `pi-soy-henry.migrations.hechos`")
-hechos = pd.DataFrame(hechos)
-st.write(hechos)
+### YEAR RANGE ###
+st.sidebar.markdown("**First select the data range you want to analyze:** 👇")
+unique_seasons = get_unique_dates(hechos)
+start_season, end_season = st.sidebar.select_slider('Select the year range you want to include', unique_seasons, value = ["13/14","19/20"])

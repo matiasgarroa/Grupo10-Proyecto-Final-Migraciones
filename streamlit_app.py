@@ -24,7 +24,7 @@ def run_query(query):
 ### INTRODUCCIÓN ###
 ####################
 
-row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 3, .1, 1.3, .1))
+row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
     st.title('Grupo10 - Analizador de Migraciones')
 with row0_2:

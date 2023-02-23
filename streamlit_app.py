@@ -2,7 +2,6 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 import pandas as pd
-import numpy as np
 
 st.set_page_config(layout="wide")
 

@@ -33,13 +33,16 @@ rows = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIMIT 10")
 for row in rows:
     st.write(row['indicator_name'])
 
-sql_indicadores = "SELECT * FROM `pi-soy-henry.migrations.indicadores`"
-indicadores = pandas_gbq.read_gbq(sql_indicadores, project_id='pi-soy-henry')
-
+indicadores = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIMIT 10")
 st.write(indicadores)
 
-sql_hechos = """
-SELECT * FROM `pi-soy-henry.migrations.hechos`
-"""
-hechos = pandas_gbq.read_gbq(sql_hechos, project_id='pi-soy-henry')
-st.write(hechos)
+#sql_indicadores = "SELECT * FROM `pi-soy-henry.migrations.indicadores`"
+#indicadores = pandas_gbq.read_gbq(sql_indicadores, project_id='pi-soy-henry')
+#
+#st.write(indicadores)
+#
+#sql_hechos = """
+#SELECT * FROM `pi-soy-henry.migrations.hechos`
+#"""
+#hechos = pandas_gbq.read_gbq(sql_hechos, project_id='pi-soy-henry')
+#st.write(hechos)

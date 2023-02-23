@@ -97,7 +97,7 @@ st.sidebar.text('')
 st.sidebar.text('')
 
 ### YEAR RANGE ###
-st.sidebar.markdown("**Filtra por años:** 👇")
+st.sidebar.markdown("**Aquí puedes filtrar datos** 👇")
 unique_dates = get_unique_anios(hechos)
 start_anio, end_anio = st.sidebar.select_slider('Seleccione el periodo de años que desea incluir: ', unique_dates, value= [ 1960 , 2021 ])
 df_data_filtered_anio = filter_anio(hechos)  

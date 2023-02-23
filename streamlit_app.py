@@ -38,7 +38,7 @@ def get_unique_anios(df_data):
 def get_unique_pais(df_data):
     #devuelve los valores unicos de hechos['pais'] en forma de lista
     unique_pais = df_data['pais'].unique().tolist()
-    unique_pais = unique_pais.sort()
+    unique_pais = sorted(unique_pais)
     return unique_pais
 
 def get_unique_nationality(df_data):

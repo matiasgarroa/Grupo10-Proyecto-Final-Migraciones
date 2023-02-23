@@ -34,6 +34,7 @@ for row in rows:
     st.write(row['indicator_name'])
 
 indicadores = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIMIT 10")
+indicadores = pd.DataFrame(indicadores)
 st.write(indicadores)
 
 #sql_indicadores = "SELECT * FROM `pi-soy-henry.migrations.indicadores`"

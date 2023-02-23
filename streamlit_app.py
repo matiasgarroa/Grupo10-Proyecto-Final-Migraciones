@@ -27,6 +27,7 @@ indicadores = pd.DataFrame(indicadores)
 
 hechos = run_query("SELECT * FROM `pi-soy-henry.migrations.hechos`")
 hechos = pd.DataFrame(hechos)
+hechos = hechos.sort_values('anio' ,ascending=True)
 
 ### Helper Methods ###
 def get_unique_anios(df_data):

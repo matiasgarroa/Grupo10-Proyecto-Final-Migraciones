@@ -29,10 +29,10 @@ hechos = pd.DataFrame(hechos)
 
 
 ### Helper Methods ###
-def get_unique_dates(df_data):
-    #returns unique dates list in the form "YEAR" for labels
-    unique_date = np.unique(df_data.anio).tolist()
-    return unique_date
+#def get_unique_dates(df_data):
+#    #returns unique dates list in the form "YEAR" for labels
+#    unique_date = np.unique(df_data.anio).tolist()
+#    return unique_date
 
 
 
@@ -61,6 +61,6 @@ st.sidebar.text('')
 st.sidebar.text('')
 
 ### YEAR RANGE ###
-st.sidebar.markdown("**First select the data range you want to analyze:** 👇")
-unique_dates = get_unique_dates(hechos)
-start_season, end_season = st.sidebar.select_slider('Select the year range you want to include', unique_dates, value= [1960,2019])
+#st.sidebar.markdown("**First select the data range you want to analyze:** 👇")
+#unique_dates = get_unique_dates(hechos)
+#start_season, end_season = st.sidebar.select_slider('Select the year range you want to include', unique_dates, value= [1960,#2019])

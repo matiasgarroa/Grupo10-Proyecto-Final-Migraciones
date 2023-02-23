@@ -63,4 +63,4 @@ st.sidebar.text('')
 ### YEAR RANGE ###
 st.sidebar.markdown("**First select the data range you want to analyze:** 👇")
 unique_seasons = get_unique_dates(hechos)
-start_season, end_season = st.sidebar.select_slider('Select the year range you want to include', unique_seasons, value = ["13/14","19/20"])
+start_season, end_season = st.sidebar.select_slider('Select the year range you want to include', unique_seasons)

@@ -29,12 +29,47 @@ hechos = run_query("SELECT * FROM `pi-soy-henry.migrations.hechos`")
 hechos = pd.DataFrame(hechos)
 
 ### Helper Methods ###
-#def get_unique_dates(df_data):
-#    #returns unique dates list in the form "YEAR" for labels
-#    unique_date = np.unique(df_data.anio).tolist()
-#    return unique_date
+def get_unique_anios(df_data):
+    #devuelve los valores unicos de hechos['anio'] en forma de lista
+    unique_anios = df_data['anio'].tolist()
+    unique_anios = unique_anios.unique()
+    return unique_anios
 
+def get_unique_pais(df_data):
+    #devuelve los valores unicos de hechos['pais'] en forma de lista
+    unique_pais = df_data['pais'].tolist()
+    unique_pais = unique_pais.unique()
+    return unique_pais
 
+def get_unique_nationality(df_data):
+    #devuelve los valores unicos de hechos['nationality'] en forma de lista
+    unique_nationality = df_data['nationality'].tolist()
+    unique_nationality = unique_nationality.unique()
+    return unique_nationality
+
+def get_unique_cod_indicador(df_data):
+    #devuelve los valores unicos de hechos['cod_indicador'] en forma de lista
+    unique_cod_indicador = df_data['cod_indicador'].tolist()
+    unique_cod_indicador = unique_cod_indicador.unique()
+    return unique_cod_indicador
+
+def filter_anio(df_data):
+    df_filtered_anios = pd.DataFrame()
+    anios = df_data['anio'].unique().tolist() #season list "13-14"
+    start_raw = start_anio
+    end_raw = end_anio
+    start_index = anios.index(start_raw)
+    end_index = anios.index(end_raw)+1
+    anios_selected = anios[start_index:end_index]
+    df_filtered_anios = df_data[df_data['anio'].isin(anios_selected)]
+    return df_filtered_anios
+
+def filter_pais(df_data):
+    df_filtered_pais = pd.DataFrame()
+    if all_paises_selected == 'Seleccione paises manualmente':
+        df_filtered_pais = df_data[df_data['pais'].isin(selected_paises)]
+        return df_filtered_pais
+    return df_data
 
 ####################
 ### INTRODUCCIÓN ###
@@ -63,6 +98,14 @@ st.sidebar.text('')
 st.sidebar.text('')
 
 ### YEAR RANGE ###
-#st.sidebar.markdown("**First select the data range you want to analyze:** 👇")
-#unique_dates = get_unique_dates(hechos)
-#start_season, end_season = st.sidebar.select_slider('Select the year range you want to include', unique_dates, value= [1960,#2019])
+st.sidebar.markdown("**First select the data range you want to analyze:** 👇")
+unique_dates = get_unique_anios(hechos)
+start_anio, end_anio = st.sidebar.select_slider('Seleccione el periodo de años que desea incluir: ', unique_dates, value= ['1960','2019'])
+df_data_filtered_anio = filter_anio(hechos)  
+
+### COUNTRY SELECTION ###
+unique_paises = get_unique_pais(df_data_filtered_anio)
+all_paises_selected = st.sidebar.selectbox('¿Quieres incluir paises o regiones en específico? Si tu respuesta es sí, cliquea en la caja debajo y selecciona los paises en el nuevo campo.', ['Incluir todos los paises y regiones','Seleccionar paises y regiones manualmente'])
+if all_paises_selected == 'Seleccionar paises y regiones manualmente':
+    selected_paises = st.sidebar.multiselect("Selecciona los paises y regiones que deseas incluir en el analysis. Puedes borrar la actual selección clickeando el boton X a la derecha", unique_paises, default = unique_paises)
+df_data_filtered = filter_pais(df_data_filtered_anio)   

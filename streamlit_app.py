@@ -66,7 +66,7 @@ def filter_anio(df_data):
 
 def filter_pais(df_data):
     df_filtered_pais = pd.DataFrame()
-    if all_paises_selected == 'Seleccione paises manualmente':
+    if all_paises_selected == 'Seleccionar paises y regiones manualmente':
         df_filtered_pais = df_data[df_data['pais'].isin(selected_paises)]
         return df_filtered_pais
     return df_data

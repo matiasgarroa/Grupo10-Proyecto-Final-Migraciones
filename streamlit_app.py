@@ -54,9 +54,10 @@ with row3_1:
     st.markdown("Queremos proporcionarte una herramienta útil y accesible, para ayudarte tomar decisiones informadas sobre tu destino de emigración.")
     st.markdown("Podrás encontrar el codigo fuente en [PF Henry GitHub Repository](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones)")
 
-unique_date = np.unique(hechos.pais)
-for i in unique_date:
-    st.write(unique_date[i])
+pais = run_query("SELECT pais FROM `pi-soy-henry.migrations.hechos`")
+pais = np.unique(pais)
+for row in pais:
+    st.write("✍️ " + pais['pais'])
 #################
 ### SELECTION ###
 #################

@@ -4,6 +4,8 @@ from google.cloud import bigquery
 import pandas as pd
 #import numpy as np
 
+st.set_page_config(layout="wide")
+
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]

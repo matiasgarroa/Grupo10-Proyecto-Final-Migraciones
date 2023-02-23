@@ -54,6 +54,9 @@ with row3_1:
     st.markdown("Queremos proporcionarte una herramienta útil y accesible, para ayudarte tomar decisiones informadas sobre tu destino de emigración.")
     st.markdown("Podrás encontrar el codigo fuente en [PF Henry GitHub Repository](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones)")
 
+
+valores_unicos = np.unique(hechos["pais"])
+st.write(valores_unicos)
 #################
 ### SELECTION ###
 #################
@@ -66,6 +69,3 @@ st.sidebar.text('')
 #st.sidebar.markdown("**First select the data range you want to analyze:** 👇")
 #unique_dates = get_unique_dates(hechos)
 #start_season, end_season = st.sidebar.select_slider('Select the year range you want to include', unique_dates, value= [1960,#2019])
-
-valores_unicos = np.unique(hechos["pais"])
-st.write(valores_unicos)

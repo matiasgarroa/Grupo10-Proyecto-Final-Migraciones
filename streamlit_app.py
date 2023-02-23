@@ -37,13 +37,6 @@ indicadores = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores` LIM
 indicadores = pd.DataFrame(indicadores)
 st.write(indicadores)
 
-#sql_indicadores = "SELECT * FROM `pi-soy-henry.migrations.indicadores`"
-#indicadores = pandas_gbq.read_gbq(sql_indicadores, project_id='pi-soy-henry')
-#
-#st.write(indicadores)
-#
-#sql_hechos = """
-#SELECT * FROM `pi-soy-henry.migrations.hechos`
-#"""
-#hechos = pandas_gbq.read_gbq(sql_hechos, project_id='pi-soy-henry')
-#st.write(hechos)
+hechos = run_query("SELECT * FROM `pi-soy-henry.migrations.hechos`")
+hechos = pd.DataFrame(hechos)
+st.write(hechos)

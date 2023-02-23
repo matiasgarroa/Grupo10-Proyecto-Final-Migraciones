@@ -109,3 +109,33 @@ all_paises_selected = st.sidebar.selectbox('¿Quieres incluir paises o regiones 
 if all_paises_selected == 'Seleccionar paises y regiones manualmente':
     selected_paises = st.sidebar.multiselect("Selecciona los paises y regiones que deseas incluir en el analysis. Puedes borrar la actual selección clickeando el boton X a la derecha", unique_paises, default = unique_paises)
 df_data_filtered = filter_pais(df_data_filtered_anio)   
+
+### SEE DATA ###
+row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
+with row6_1:
+    st.subheader("Datos seleccionados actualmente:")
+
+row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3, row2_3, row2_spacer4, row2_4, row2_spacer5   = st.columns((.2, 1.6, .2, 1.6, .2, 1.6, .2, 1.6, .2))
+with row2_1:
+    unique_anios_in_df = df_data_filtered.anio.nunique()
+    str_anios = "🗓️ " + str(unique_anios_in_df) + " Años diferentes"
+    st.markdown(str_anios)
+with row2_2:
+    unique_paises_in_df = len(df_data_filtered['pais'].unique().tolist())
+    t = " Paises/Regiones"
+    if(unique_paises_in_df==1):
+        t = " Pais/Región"
+    str_paises = "🌎 " + str(unique_paises_in_df) + t
+    st.markdown(str_paises)
+with row2_3:
+    total_data_in_df = df_data_filtered['pais'].count()
+    str_data = "📊 " + str(total_data_in_df) + " Datos"
+    st.markdown(str_data)
+
+row3_spacer1, row3_1, row3_spacer2 = st.columns((.2, 7.1, .2))
+with row3_1:
+    st.markdown("")
+    see_data = st.expander('Puedes hacer click aquí para ver los datos sin procesar 👉')
+    with see_data:
+        st.dataframe(data=df_data_filtered.reset_index(drop=True))
+st.text('')

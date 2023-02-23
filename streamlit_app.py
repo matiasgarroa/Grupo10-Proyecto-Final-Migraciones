@@ -2,7 +2,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 import pandas as pd
-import numpy as np
+#import numpy as np
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(

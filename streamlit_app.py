@@ -87,8 +87,6 @@ with row3_1:
     st.markdown("Queremos proporcionarte una herramienta útil y accesible, para ayudarte tomar decisiones informadas sobre tu destino de emigración.")
     st.markdown("Podrás encontrar el codigo fuente en [PF Henry GitHub Repository](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones)")
 
-st.write(hechos.head(1))
-
 #################
 ### SELECTION ###
 #################

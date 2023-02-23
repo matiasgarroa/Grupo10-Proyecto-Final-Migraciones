@@ -57,7 +57,7 @@ with row3_1:
 pais = run_query("SELECT pais FROM `pi-soy-henry.migrations.hechos`")
 pais = np.unique(pais)
 for row in pais:
-    st.write("✍️ " + pais['pais'])
+    st.write("✍️ " + row['pais'])
 #################
 ### SELECTION ###
 #################

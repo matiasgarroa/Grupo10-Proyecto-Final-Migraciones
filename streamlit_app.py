@@ -36,11 +36,11 @@ for row in rows:
 sql_indicadores = """
 SELECT * FROM `pi-soy-henry.migrations.indicadores`
 """
-indicadores = pd.read_gbq(sql_indicadores, project_id='pi-soy-henry')
+indicadores = pandas_gbq.read_gbq(sql_indicadores, project_id='pi-soy-henry')
 
 st.write(indicadores)
 
 sql_hechos = """
 SELECT * FROM `pi-soy-henry.migrations.hechos`
 """
-hechos = pd.read_gbq(sql_hechos, project_id='pi-soy-henry')
+hechos = pandas_gbq.read_gbq(sql_hechos, project_id='pi-soy-henry')

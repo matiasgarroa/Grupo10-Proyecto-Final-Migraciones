@@ -31,8 +31,7 @@ hechos = pd.DataFrame(hechos)
 ### Helper Methods ###
 def get_unique_anios(df_data):
     #devuelve los valores unicos de hechos['anio'] en forma de lista
-    unique_anios = df_data['anio'].tolist()
-    unique_anios = unique_anios.unique()
+    unique_anios = df_data['anio'].unique().tolist()
     return unique_anios
 
 def get_unique_pais(df_data):
@@ -98,7 +97,7 @@ st.sidebar.text('')
 st.sidebar.text('')
 
 ### YEAR RANGE ###
-st.sidebar.markdown("**First select the data range you want to analyze:** 👇")
+st.sidebar.markdown("**Filtra por años:** 👇")
 unique_dates = get_unique_anios(hechos)
 start_anio, end_anio = st.sidebar.select_slider('Seleccione el periodo de años que desea incluir: ', unique_dates, value= ['1960','2019'])
 df_data_filtered_anio = filter_anio(hechos)  

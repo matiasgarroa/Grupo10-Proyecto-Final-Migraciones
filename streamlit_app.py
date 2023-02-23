@@ -28,9 +28,6 @@ indicadores = pd.DataFrame(indicadores)
 hechos = run_query("SELECT * FROM `pi-soy-henry.migrations.hechos`")
 hechos = pd.DataFrame(hechos)
 
-valores_unicos = hechos['pais'].unique()
-st.write(valores_unicos)
-
 ### Helper Methods ###
 #def get_unique_dates(df_data):
 #    #returns unique dates list in the form "YEAR" for labels

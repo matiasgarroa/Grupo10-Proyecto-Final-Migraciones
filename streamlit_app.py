@@ -2,6 +2,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 import pandas as pd
+import pandas_gbq
 
 st.set_page_config(layout="wide")
 
@@ -22,12 +23,22 @@ def run_query(query):
     return rows
 
 #Importamos datos
-indicadores = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores`")
-indicadores = pd.DataFrame(indicadores)
+#indicadores = run_query("SELECT * FROM `pi-soy-henry.migrations.indicadores`")
+#indicadores = pd.DataFrame(indicadores)
 
-hechos = run_query("SELECT * FROM `pi-soy-henry.migrations.hechos`")
-hechos = pd.DataFrame(hechos)
-hechos = hechos.sort_values('anio' ,ascending=True)
+#hechos = run_query("SELECT * FROM `pi-soy-henry.migrations.hechos`")
+#hechos = pd.DataFrame(hechos)
+#hechos = hechos.sort_values('anio' ,ascending=True)
+
+sql_indicadores = """
+SELECT * FROM `pi-soy-henry.migrations.indicadores`
+"""
+indicadores = pandas_gbq.read_gbq(sql_indicadores, project_id='pi-soy-henry')
+
+sql_hechos = """
+SELECT * FROM `pi-soy-henry.migrations.hechos`
+"""
+hechos = pandas_gbq.read_gbq(sql_hechos, project_id='pi-soy-henry')
 
 ### Helper Methods ###
 def get_unique_anios(df_data):

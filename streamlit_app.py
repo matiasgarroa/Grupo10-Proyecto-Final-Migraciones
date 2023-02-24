@@ -147,3 +147,13 @@ row12_spacer1, row12_1, row12_spacer2 = st.columns((.2, 7.1, .2))
 with row12_1:
     st.subheader('Encontrar KPI')
     st.markdown('Muestra el pais (o los paises) con...')  
+
+#completar con codigo
+#completar con codigo
+#completar con codigo
+#completar con codigo
+#completar con codigo
+#completar con codigo
+#completar con codigo
+#completar con codigo
+#completar con codigo

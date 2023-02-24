@@ -93,46 +93,26 @@ def find_indicador_value_pais(min_max,attribute):
         return_indicador_value_pais = df_find.nsmallest(1, 'valor')
     if(min_max == "Valor maximo"):
         return_indicador_value_pais = df_find.nlargest(1, 'valor')
-    anio = return_indicador_value_pais['anio']
-    value = return_indicador_value_pais['valor']
-    pais = return_indicador_value_pais['pais']
-    return_indicador_value_pais = [anio, value, pais]
     return return_indicador_value_pais
 
 def build_resultado_return_string(return_indicador_value_pais,min_max,attribute):
-    game_id = return_indicador_value_pais
-    df_match_result = df_data_filtered.loc[df_data_filtered['game_id'] == game_id]
-    season = df_match_result.iloc[0]['season'].replace("-","/")
-    matchday = str(df_match_result.iloc[0]['matchday'])
-    home_team = df_match_result.iloc[0]['team']
-    away_team = df_match_result.iloc[1]['team']
-    goals_home = str(df_match_result.iloc[0]['goals'])
-    goals_away = str(df_match_result.iloc[1]['goals'])
-    goals_home = str(df_match_result.iloc[0]['goals'])    
-    string1 =  "On matchday " + matchday + " of season " + season + " " + home_team + " played against " + away_team + ". "
-    string2 = ""
-    if(goals_home>goals_away):
-        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") win for " + home_team + "."
-    if(goals_home<goals_away):
-        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") loss for " + home_team + "."
-    if(goals_home==goals_away):
-        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") draw. "
-    string3 = ""
-    string4 = ""
-    value = str(abs(round(return_indicador_value_pais[1],2)))
-    team = str(return_indicador_value_pais[2])
-    if(what == "difference between teams"):
-        string3 = " Over the course of the match, a difference of " + value + " " + attribute + " was recorded between the teams."
-        string4 = " This is the " + min_max.lower() + " difference for two teams in the currently selected data."
-    if(what == "by both teams"):
-        string3 = " Over the course of the match, both teams recorded " + value + " " + attribute + " together."
-        string4 = " This is the " + min_max.lower() +" value for two teams in the currently selected data."
-    if(what == "by a team"):
-        string3 = " Over the course of the match, " + team + " recorded " + value + " " + attribute + "."
-        string4 = " This is the " + min_max.lower() +" value for a team in the currently selected data."
+    anio = return_indicador_value_pais['anio']
+    pais = return_indicador_value_pais['pais']
+    valor = return_indicador_value_pais['valor']
+    if (attribute == 'Migración Neta'):
+        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una migración neta de " + str(valor)
+    if (attribute == 'Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)'):
+        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una idoneidad de los programas de trabajo y protección social de " + str(valor)
+    if (attribute == 'Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)'):
+        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una idoneidad de los programas de seguro social de " + str(valor)
+    if (attribute == 'Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)'):
+        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " pagó " + str(valor) + ' en remesas de trabajadores y compensación de empleados'    
+    else:
+        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo un" + attribute + " de " + str(valor)
+    
     answer = string1 + string2 + string3 + string4
     st.markdown(answer)
-    return df_match_result
+    return df_find_result
 
 ####################
 ### INTRODUCCIÓN ###
@@ -222,7 +202,6 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
     row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
     with row14_1:
         return_indicador_value_pais = find_indicador_value_pais(show_me_hi_lo,show_me_aspect)
-        st.write(type(return_indicador_value_pais))
         df_find_result = build_resultado_return_string(return_indicador_value_pais,show_me_hi_lo,show_me_aspect)
 #
     #row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))

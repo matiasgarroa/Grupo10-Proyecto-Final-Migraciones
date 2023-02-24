@@ -93,9 +93,9 @@ def find_indicador_value_pais(min_max,attribute):
         return_indicador_value_pais = df_find.nsmallest(1, 'valor')
     if(min_max == "Valor maximo"):
         return_indicador_value_pais = df_find.nlargest(1, 'valor')
-    anio = return_indicador_value_pais['anio'].value()
-    value = return_indicador_value_pais['valor'].value()
-    pais = return_indicador_value_pais['pais'].value()
+    anio = return_indicador_value_pais['anio']
+    value = return_indicador_value_pais['valor']
+    pais = return_indicador_value_pais['pais']
     return_indicador_value_pais = [anio, value, pais]
     return return_indicador_value_pais
 
@@ -222,7 +222,7 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
     row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
     with row14_1:
         return_indicador_value_pais = find_indicador_value_pais(show_me_hi_lo,show_me_aspect)
-        st.write(return_indicador_value_pais[1])
+        st.write(return_indicador_value_pais)
         df_find_result = build_resultado_return_string(return_indicador_value_pais,show_me_hi_lo,show_me_aspect)
 #
     #row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))

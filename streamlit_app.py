@@ -96,20 +96,20 @@ def find_indicador_value_pais(min_max,attribute):
     return return_indicador_value_pais
 
 def build_resultado_return_string(return_indicador_value_pais,min_max,attribute):
-    anio = str(return_indicador_value_pais['anio'])
-    pais = str(return_indicador_value_pais['pais'])
-    valor = str(return_indicador_value_pais['valor'])
+    anio = int(return_indicador_value_pais['anio'].values[0])
+    pais = str(return_indicador_value_pais['pais'].values[0])
+    valor = str(return_indicador_value_pais['valor'].values[0])
     if (min_max == 'Valor minimo'):
         min_max = 'valor minimo'
     if (min_max == 'Valor maximo'):
         min_max = 'valor maximo'
-    if (attribute == 'Migración Neta'):
+    elif (attribute == 'Migración Neta'):
         string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una migración neta con un " + min_max + " de " + str(valor)
-    if (attribute == 'Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)'):
+    elif (attribute == 'Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)'):
         string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una idoneidad de los programas de trabajo y protección social con un " + min_max + " de " + str(valor)
-    if (attribute == 'Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)'):
+    elif (attribute == 'Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)'):
         string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una idoneidad de los programas de seguro social con un " + min_max + " de " + str(valor)
-    if (attribute == 'Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)'):
+    elif (attribute == 'Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)'):
         string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde el " + min_max + " que " + pais + " pagó, fué de " + str(valor) + ' en remesas de trabajadores y compensación de empleados'    
     else:
         string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo un" + attribute + " con un " + min_max + " de " + str(valor)

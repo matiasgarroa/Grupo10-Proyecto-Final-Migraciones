@@ -99,18 +99,22 @@ def build_resultado_return_string(return_indicador_value_pais,min_max,attribute)
     anio = return_indicador_value_pais['anio']
     pais = return_indicador_value_pais['pais']
     valor = return_indicador_value_pais['valor']
+    if (min_max == 'Valor minimo'):
+        min_max = 'valor minimo'
+    if (min_max == 'Valor maximo'):
+        min_max = 'valor maximo'
     if (attribute == 'Migración Neta'):
-        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una migración neta de " + str(valor)
+        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una migración neta con un " + min_max + " de " + str(valor)
     if (attribute == 'Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)'):
-        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una idoneidad de los programas de trabajo y protección social de " + str(valor)
+        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una idoneidad de los programas de trabajo y protección social con un " + min_max + " de " + str(valor)
     if (attribute == 'Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)'):
-        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una idoneidad de los programas de seguro social de " + str(valor)
+        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una idoneidad de los programas de seguro social con un " + min_max + " de " + str(valor)
     if (attribute == 'Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)'):
-        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " pagó " + str(valor) + ' en remesas de trabajadores y compensación de empleados'    
+        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde el " + min_max + " que " + pais + " pagó, fué de " + str(valor) + ' en remesas de trabajadores y compensación de empleados'    
     else:
-        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo un" + attribute + " de " + str(valor)
+        string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo un" + attribute + " con un " + min_max + " de " + str(valor)
     
-    answer = string1 + string2 + string3 + string4
+    answer = string1
     st.markdown(answer)
     return df_find_result
 

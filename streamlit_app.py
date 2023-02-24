@@ -7,17 +7,10 @@ import pandas_gbq
 st.set_page_config(layout="wide")
 
 # Create API client.
-#credentials = service_account.Credentials.from_service_account_info(
-#    st.secrets["gcp_service_account"]
-#)
-#client = bigquery.Client(credentials=credentials)
-
-# Cargar credenciales desde secretos
-secret_credentials = st.secrets["gcp_service_account"]
-client = secret_credentials
-
-# Establecer credenciales de autenticación
-pandas_gbq.context.credentials = client
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"]
+)
+client = bigquery.Client(credentials=credentials)
 
 # Perform query.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.

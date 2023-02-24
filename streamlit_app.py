@@ -96,6 +96,7 @@ def find_indicador_value_pais(min_max,attribute):
     return return_indicador_value_pais
 
 def build_resultado_return_string(return_indicador_value_pais,min_max,attribute):
+    #df_find_result = df_data_filtered.loc[df_data_filtered['game_id'] == game_id]
     anio = int(return_indicador_value_pais['anio'].iloc[0])
     pais = str(return_indicador_value_pais['pais'].iloc[0])
     valor = str(return_indicador_value_pais['valor'].iloc[0])
@@ -115,8 +116,8 @@ def build_resultado_return_string(return_indicador_value_pais,min_max,attribute)
     else:
         string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo un" + attribute + " con un " + min_max + " de " + str(valor)
     
-    st.markdown(string1)
-    return df_find_result
+    return st.markdown(string1)
+    #return df_find_result
 
 ####################
 ### INTRODUCCIÓN ###

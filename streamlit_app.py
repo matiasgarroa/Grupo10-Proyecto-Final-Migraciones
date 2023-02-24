@@ -33,12 +33,12 @@ client = bigquery.Client(credentials=credentials)
 sql_indicadores = """
 SELECT * FROM `pi-soy-henry.migrations.indicadores`
 """
-indicadores = pandas_gbq.read_gbq(sql_indicadores, project_id='pi-soy-henry')
+indicadores = pandas_gbq.read_gbq(sql_indicadores, project_id= "pi-soy-henry", credentials=credentials)
 
 sql_hechos = """
 SELECT * FROM `pi-soy-henry.migrations.hechos`
 """
-hechos = pandas_gbq.read_gbq(sql_hechos, project_id='pi-soy-henry')
+hechos = pandas_gbq.read_gbq(sql_hechos, project_id= "pi-soy-henry", credentials=credentials)
 
 ### Helper Methods ###
 def get_unique_anios(df_data):

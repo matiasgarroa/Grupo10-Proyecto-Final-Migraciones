@@ -96,9 +96,9 @@ def find_indicador_value_pais(min_max,attribute):
     return return_indicador_value_pais
 
 def build_resultado_return_string(return_indicador_value_pais,min_max,attribute):
-    anio = return_indicador_value_pais['anio']
-    pais = return_indicador_value_pais['pais']
-    valor = return_indicador_value_pais['valor']
+    anio = str(return_indicador_value_pais['anio'])
+    pais = str(return_indicador_value_pais['pais'])
+    valor = str(return_indicador_value_pais['valor'])
     if (min_max == 'Valor minimo'):
         min_max = 'valor minimo'
     if (min_max == 'Valor maximo'):

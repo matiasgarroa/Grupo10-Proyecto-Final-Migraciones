@@ -20,16 +20,15 @@ def read_dataframe(query):
     return dataframe
 
 #Importamos datos
-sql_indicadores = """
-SELECT * FROM `pi-soy-henry.migrations.indicadores`
-"""
-indicadores = read_dataframe(sql_indicadores)
 
 sql_hechos = """
 SELECT * FROM `pi-soy-henry.migrations.hechos`
 """
 hechos = read_dataframe(sql_hechos)
 hechos = hechos.sort_values('anio' ,ascending=True)
+
+label_indicators_dict = {'SM.POP.NETM':'Migración Neta','NY.GDP.MKTP.CN':'PIB (UMN a precios actuales)','NY.GDP.PCAP.CN':'PIB per cápita (UMN actual)','per_allsp.adq_pop_tot':'Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)','per_si_allsi.adq_pop_tot':'Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)','BM.TRF.PWKR.CD.DT':'Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)','NY.GDP.PCAP.KD.ZG':'Crecimiento del PIB per cápita (porcentaje anual)','NY.GDP.MKTP.KD.ZG':'Crecimiento del PIB (porcentaje anual)','SN.ITK.SALT.ZS':'Consumo de sal iodada (porcentaje de hogares) ','B11':'Entradas de población extranjera por nacionalidad ','B12':'Salidas de población extranjera por nacionalidad ','B14': 'Stock de población nacida en el extranjero por país de nacimiento','B15': 'Stock de población extranjera por nacionalidad'}
+
 
 ### Helper Methods ###
 def get_unique_anios(df_data):
@@ -72,6 +71,26 @@ def filter_pais(df_data):
         df_filtered_pais = df_data[df_data['pais'].isin(selected_paises)]
         return df_filtered_pais
     return df_data
+
+#def find_match_game_id(min_max,attribute):
+#    df_find = df_data_filtered
+#    search_attribute = label_indicators_dict[attribute]
+#    
+#    df_find[search_attribute] = df_find[search_attribute].abs()
+#    column = df_find[search_attribute]
+#    index = 0
+#    if(min_max == "Valor minimo"):
+#        index = column.idxmin()
+#    if(min_max == "Valor maximo"):
+#        index = column.idxmax()
+#
+#    anio = df_find.at[index, 'anio']
+#    value = df_find.at[index,search_attribute]
+#    pais = ""
+#    return_indicador_value_pais = [anio,value,pais]
+#    return return_indicador_value_pais
+
+
 
 ####################
 ### INTRODUCCIÓN ###
@@ -150,12 +169,31 @@ with row12_1:
     st.subheader('Encontrar KPI')
     st.markdown('Muestra el pais (o los paises) con...')  
 
-#completar con codigo
-#completar con codigo
-#completar con codigo
-#completar con codigo
-#completar con codigo
-#completar con codigo
-#completar con codigo
-#completar con codigo
-#completar con codigo
+if all_paises_selected == 'Incluir todos los paises y regiones':
+
+    row13_spacer1, row13_1, row13_spacer2, row13_2, row13_spacer3, row13_3, row13_spacer4   = st.columns((.2, 2.3, .2, 2.3, .2, 2.3, .2))
+    with row13_1:
+        show_me_hi_lo = st.selectbox ("", ["Valor maximo","Valor minimo"], key = 'hi_lo') 
+    with row13_2:
+        show_me_aspect = st.selectbox ("", list(label_indicators_dict.keys()), key = 'what')
+
+    #row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
+    #with row14_1:
+    #    return_indicador_value_pais = find_match_game_id(show_me_hi_lo,show_me_aspect)
+    #    df_match_result = build_matchfacts_return_string(return_indicador_value_pais,show_me_hi_lo,show_me_aspect)
+#
+    #row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
+    #with row15_1:
+    #    st.subheader(" ")
+    #with row15_2:
+    #    st.subheader(str(df_match_result.iloc[0]['pais']))
+    #with row15_3:
+    #    end_result = str(df_match_result.iloc[0]['goals']) + " : " +str(df_match_result.iloc[1]['goals'])
+    #    ht_result = " ( " + str(df_match_result.iloc[0]['ht_goals']) + " : " +str(df_match_result.iloc[1]['ht_goals']) + " )"
+    #    st.subheader(end_result + " " + ht_result)  
+    #with row15_4:
+    #    st.subheader(str(df_match_result.iloc[1]['pai']))
+else:
+    row17_spacer1, row17_1, row17_spacer2 = st.columns((.2, 7.1, .2))
+    with row17_1:
+        st.warning('Unfortunately this analysis is only available if all teams are included')

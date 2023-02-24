@@ -73,23 +73,17 @@ def filter_pais(df_data):
         return df_filtered_pais
     return df_data
 
-#def find_match_game_id(min_max,attribute):
-#    df_find = df_data_filtered
-#    search_attribute = label_indicators_dict[attribute]
-#    
-#    df_find[search_attribute] = df_find[search_attribute].abs()
-#    column = df_find[search_attribute]
-#    index = 0
-#    if(min_max == "Valor minimo"):
-#        index = column.idxmin()
-#    if(min_max == "Valor maximo"):
-#        index = column.idxmax()
-#
-#    anio = df_find.at[index, 'anio']
-#    value = df_find.at[index,search_attribute]
-#    pais = ""
-#    return_indicador_value_pais = [anio,value,pais]
-#    return return_indicador_value_pais
+def find_indicador_value_pais(min_max,attribute):
+    df_find = df_data_filtered
+    search_attribute = label_indicators_dict[attribute]
+    
+    df_find = df_find.loc[df_find['codigo_indicador'] == search_attribute]
+
+    if(min_max == "Valor minimo"):
+        return_indicador_value_pais = df_find.nsmallestt(1, 'valor')
+    if(min_max == "Valor maximo"):
+        return_indicador_value_pais = df_find.nlarguest(1, 'valor')
+    return return_indicador_value_pais
 
 
 
@@ -178,9 +172,10 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
     with row13_2:
         show_me_aspect = st.selectbox ("", list(label_indicators_filtrados_dict.keys()), key = 'what')
 
-    #row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
-    #with row14_1:
-    #    return_indicador_value_pais = find_match_game_id(show_me_hi_lo,show_me_aspect)
+    row14_spacer1, row14_1, row14_spacer2 = st.columns((.2, 7.1, .2))
+    with row14_1:
+        return_indicador_value_pais = find_indicador_value_pais(show_me_hi_lo,show_me_aspect)
+        st.write(return_indicador_value_pais)
     #    df_match_result = build_matchfacts_return_string(return_indicador_value_pais,show_me_hi_lo,show_me_aspect)
 #
     #row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))

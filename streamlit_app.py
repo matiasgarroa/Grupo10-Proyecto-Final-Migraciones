@@ -89,7 +89,7 @@ def find_indicador_value_pais(min_max,attribute):
     df_find = df_find.loc[df_find['codigo_indicador'] == search_attribute]
 
     if(min_max == "Valor minimo"):
-        return_indicador_value_pais = df_find.nsmallest(1, 'valor')
+        return_indicador_value_pais = df_find.nsmallest(1, 'valor') & df_find['valor'] != 0
     if(min_max == "Valor maximo"):
         return_indicador_value_pais = df_find.nlargest(1, 'valor')
     return return_indicador_value_pais

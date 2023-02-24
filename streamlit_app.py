@@ -93,9 +93,9 @@ def find_indicador_value_pais(min_max,attribute):
         return_indicador_value_pais = df_find.nsmallest(1, 'valor')
     if(min_max == "Valor maximo"):
         return_indicador_value_pais = df_find.nlargest(1, 'valor')
-    anio = return_indicador_value_pais['anio']
-    value = return_indicador_value_pais['valor']
-    pais = return_indicador_value_pais['pais']
+    anio = return_indicador_value_pais['anio'].value()
+    value = return_indicador_value_pais['valor'].value()
+    pais = return_indicador_value_pais['pais'].value()
     return_indicador_value_pais = [anio, value, pais]
     return return_indicador_value_pais
 

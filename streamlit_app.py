@@ -77,7 +77,13 @@ def filter_pais(df_data):
 
 def find_indicador_value_pais(min_max,attribute):
     df_find = df_data_filtered
-    df_find = ~df_find['pais'].str.contains(datos_a_excluir)
+    condicion_exclusion = False
+    for palabra in datos_a_excluir:
+        condicion_exclusion = condicion_exclusion | df_find['pais'].str.contains(palabra)
+
+    mascara = ~condicion_exclusion
+    df_find = df_find.loc[mascara]
+    
     search_attribute = label_indicators_dict[attribute]
     
     df_find = df_find.loc[df_find['codigo_indicador'] == search_attribute]

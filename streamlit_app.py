@@ -99,6 +99,7 @@ def build_resultado_return_string(return_indicador_value_pais,min_max,attribute)
     anio = int(return_indicador_value_pais['anio'].iloc[0])
     pais = str(return_indicador_value_pais['pais'].iloc[0])
     valor = str(return_indicador_value_pais['valor'].iloc[0])
+    string1 = ''
     if (min_max == 'Valor minimo'):
         min_max = 'valor minimo'
     if (min_max == 'Valor maximo'):

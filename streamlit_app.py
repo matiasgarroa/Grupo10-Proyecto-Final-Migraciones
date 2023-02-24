@@ -111,7 +111,7 @@ df_data_filtered = filter_pais(df_data_filtered_anio)
 ### SEE DATA ###
 row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
 with row6_1:
-    st.subheader("Datos seleccionados actualmente:")
+    st.subheader("Datos actualmente seleccionados:")
 
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3, row2_3, row2_spacer4, row2_4, row2_spacer5   = st.columns((.2, 1.6, .2, 1.6, .2, 1.6, .2, 1.6, .2))
 with row2_1:
@@ -137,3 +137,13 @@ with row3_1:
     with see_data:
         st.dataframe(data=df_data_filtered.reset_index(drop=True))
 st.text('')
+
+################
+### ANALYSIS ###
+################
+
+### DATA EXPLORER ###
+row12_spacer1, row12_1, row12_spacer2 = st.columns((.2, 7.1, .2))
+with row12_1:
+    st.subheader('Encontrar KPI')
+    st.markdown('Muestra el pais (o los paises) con...')  

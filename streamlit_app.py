@@ -93,9 +93,46 @@ def find_indicador_value_pais(min_max,attribute):
         return_indicador_value_pais = df_find.nsmallest(1, 'valor')
     if(min_max == "Valor maximo"):
         return_indicador_value_pais = df_find.nlargest(1, 'valor')
+    anio = return_indicador_value_pais['anio']
+    value = return_indicador_value_pais['valor']
+    pais = return_indicador_value_pais['pais']
+    return_indicador_value_pais = [anio, value, pais]
     return return_indicador_value_pais
 
-
+def build_resultado_return_string(return_indicador_value_pais,min_max,attribute):
+    game_id = return_indicador_value_pais
+    df_match_result = df_data_filtered.loc[df_data_filtered['game_id'] == game_id]
+    season = df_match_result.iloc[0]['season'].replace("-","/")
+    matchday = str(df_match_result.iloc[0]['matchday'])
+    home_team = df_match_result.iloc[0]['team']
+    away_team = df_match_result.iloc[1]['team']
+    goals_home = str(df_match_result.iloc[0]['goals'])
+    goals_away = str(df_match_result.iloc[1]['goals'])
+    goals_home = str(df_match_result.iloc[0]['goals'])    
+    string1 =  "On matchday " + matchday + " of season " + season + " " + home_team + " played against " + away_team + ". "
+    string2 = ""
+    if(goals_home>goals_away):
+        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") win for " + home_team + "."
+    if(goals_home<goals_away):
+        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") loss for " + home_team + "."
+    if(goals_home==goals_away):
+        string2 = "The match resulted in a " + goals_home + ":" + goals_away + " (" + str(df_match_result.iloc[0]['ht_goals']) + ":" + str(df_match_result.iloc[1]['ht_goals']) +") draw. "
+    string3 = ""
+    string4 = ""
+    value = str(abs(round(return_indicador_value_pais[1],2)))
+    team = str(return_indicador_value_pais[2])
+    if(what == "difference between teams"):
+        string3 = " Over the course of the match, a difference of " + value + " " + attribute + " was recorded between the teams."
+        string4 = " This is the " + min_max.lower() + " difference for two teams in the currently selected data."
+    if(what == "by both teams"):
+        string3 = " Over the course of the match, both teams recorded " + value + " " + attribute + " together."
+        string4 = " This is the " + min_max.lower() +" value for two teams in the currently selected data."
+    if(what == "by a team"):
+        string3 = " Over the course of the match, " + team + " recorded " + value + " " + attribute + "."
+        string4 = " This is the " + min_max.lower() +" value for a team in the currently selected data."
+    answer = string1 + string2 + string3 + string4
+    st.markdown(answer)
+    return df_match_result
 
 ####################
 ### INTRODUCCIÓN ###
@@ -186,7 +223,7 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
     with row14_1:
         return_indicador_value_pais = find_indicador_value_pais(show_me_hi_lo,show_me_aspect)
         st.write(return_indicador_value_pais)
-    #    df_match_result = build_matchfacts_return_string(return_indicador_value_pais,show_me_hi_lo,show_me_aspect)
+        df_find_result = build_resultado_return_string(return_indicador_value_pais,show_me_hi_lo,show_me_aspect)
 #
     #row15_spacer1, row15_1, row15_2, row15_3, row15_4, row15_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
     #with row15_1:

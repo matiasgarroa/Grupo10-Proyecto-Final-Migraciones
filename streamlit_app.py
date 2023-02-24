@@ -12,16 +12,23 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
+# Perform query.
+# Uses st.cache_data to only rerun when the query changes or after 10000 min.
+@st.cache_data(ttl=60000)
+def read_dataframe(query):
+    dataframe = pandas_gbq.read_gbq(query, project_id= "pi-soy-henry", credentials=credentials)
+    return dataframe
+
 #Importamos datos
 sql_indicadores = """
 SELECT * FROM `pi-soy-henry.migrations.indicadores`
 """
-indicadores = pandas_gbq.read_gbq(sql_indicadores, project_id= "pi-soy-henry", credentials=credentials)
+indicadores = read_dataframe(sql_indicadores)
 
 sql_hechos = """
 SELECT * FROM `pi-soy-henry.migrations.hechos`
 """
-hechos = pandas_gbq.read_gbq(sql_hechos, project_id= "pi-soy-henry", credentials=credentials)
+hechos = read_dataframe(sql_hechos)
 hechos = hechos.sort_values('anio' ,ascending=True)
 
 ### Helper Methods ###

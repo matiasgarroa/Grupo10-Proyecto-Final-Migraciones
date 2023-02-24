@@ -31,6 +31,8 @@ label_indicators_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a precios act
 
 label_indicators_filtrados_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a precios actuales)':'NY.GDP.MKTP.CN','PIB per cápita (UMN actual)':'NY.GDP.PCAP.CN','Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)':'per_allsp.adq_pop_tot','Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)':'per_si_allsi.adq_pop_tot','Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)':'BM.TRF.PWKR.CD.DT','Crecimiento del PIB per cápita (porcentaje anual)':'NY.GDP.PCAP.KD.ZG','Crecimiento del PIB (porcentaje anual)':'NY.GDP.MKTP.KD.ZG'}
 
+datos_a_excluir = ['Africa Eastern', 'Africa Western', 'World', 'Early', 'Europe & Central Asia', 'Heavily', 'IBDR', 'IDA', 'Latin', 'Low', 'Middle', 'North America', 'OECD', 'Other small', 'Post-', 'Pre-', 'Upper', ]
+
 ### Helper Methods ###
 def get_unique_anios(df_data):
     #devuelve los valores unicos de hechos['anio'] en forma de lista
@@ -75,6 +77,7 @@ def filter_pais(df_data):
 
 def find_indicador_value_pais(min_max,attribute):
     df_find = df_data_filtered
+    df_find = ~df_find['pais'].str.contains(datos_a_excluir)
     search_attribute = label_indicators_dict[attribute]
     
     df_find = df_find.loc[df_find['codigo_indicador'] == search_attribute]

@@ -210,9 +210,6 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
         return_indicador_value_pais = find_indicador_value_pais(show_me_hi_lo,show_me_aspect)
         df_find_result = build_resultado_return_string(return_indicador_value_pais,show_me_hi_lo,show_me_aspect)
 
-    #row15_spacer1, row15_1, row15_spacer2  = st.columns((0.5, 1.5, 0.5))
-    #with row15_1:
-    #    st.subheader(str(df_find_result.iloc[0]['pais']))
     row15_spacer1, row15_1, row15_2, row15_spacer2  = st.columns((0.5, 4.5, 1.5, 0.5))
     with row15_1:
         st.subheader(str(df_find_result.iloc[0]['pais']))
@@ -234,6 +231,7 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
         st.markdown("Idoneidad de los programas de trabajo y protección social")
         st.markdown("Idoneidad de los programas de seguro social")
         st.markdown("Remesas de trabajadores y compensación de empleados")
+        st.markdown("*nan = Valor Faltante")
 
     with row16_2:
         st.markdown(" " + str(df_data_filtered.loc[(df_data_filtered['anio'] == df_find_result.iloc[0]['anio']) &   (df_data_filtered['codigo_indicador'] == 'SM.POP.NETM'), 'valor'].values[0]))
@@ -244,5 +242,3 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
         st.markdown(" " + str(df_data_filtered.loc[(df_data_filtered['anio'] == df_find_result.iloc[0]['anio']) &   (df_data_filtered['codigo_indicador'] == 'per_allsp.adq_pop_tot'), 'valor'].values[0]))
         st.markdown(" " + str(df_data_filtered.loc[(df_data_filtered['anio'] == df_find_result.iloc[0]['anio']) &   (df_data_filtered['codigo_indicador'] == 'per_si_allsi.adq_pop_tot'), 'valor'].values[0]))
         st.markdown(" " + str(df_data_filtered.loc[(df_data_filtered['anio'] == df_find_result.iloc[0]['anio']) &   (df_data_filtered['codigo_indicador'] == 'BM.TRF.PWKR.CD.DT'), 'valor'].values[0]))
-
-label_indicators_filtrados_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a precios actuales)':'NY.GDP.MKTP.CN','PIB per cápita (UMN actual)':'NY.GDP.PCAP.CN','Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)':'per_allsp.adq_pop_tot','Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)':'per_si_allsi.adq_pop_tot','Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)':'BM.TRF.PWKR.CD.DT','Crecimiento del PIB per cápita (porcentaje anual)':'NY.GDP.PCAP.KD.ZG','Crecimiento del PIB (porcentaje anual)':'NY.GDP.MKTP.KD.ZG'}

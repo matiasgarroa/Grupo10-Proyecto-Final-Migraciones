@@ -103,9 +103,10 @@ def build_resultado_return_string(return_indicador_value_pais,min_max,attribute)
     string1 = ''
     if (min_max == 'Valor minimo'):
         min_max = 'valor minimo'
-    if (min_max == 'Valor maximo'):
+    else:
         min_max = 'valor maximo'
-    elif (attribute == 'Migración Neta'):
+
+    if (attribute == 'Migración Neta'):
         string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una migración neta con un " + min_max + " de " + str(valor)
     elif (attribute == 'Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)'):
         string1 =  "Nuestra consulta nos remonta al año " + str(anio) + ", donde  " + pais + " tuvo una idoneidad de los programas de trabajo y protección social con un " + min_max + " de " + str(valor)

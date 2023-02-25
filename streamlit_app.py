@@ -37,7 +37,7 @@ datos_a_excluir = ['Africa Eastern', 'Africa Western', 'World', 'Early', 'divide
 types = ["Media","Total","Mediana","Maximo","Minimo"]
 
 for palabra in datos_a_excluir:
-        condicion_exclusion = condicion_exclusion | hechos['pais'].str.contains(palabra)
+    condicion_exclusion = condicion_exclusion | hechos['pais'].str.contains(palabra)
 
 mascara = ~condicion_exclusion
 hechos = hechos.loc[mascara]

@@ -157,7 +157,7 @@ def plot_x_per_anio(attr,measure):
     df_plot = pd.DataFrame()
     df_plot = group_measure_by_attribute("anio",attribute,measure)
     ax = sns.barplot(x="aspect", y=attribute, data=df_plot, color = "#b80606")
-    y_str = measure + " " + attr + " " + " por pa[is]"
+    y_str = measure + " " + attr + " " + " por país]"
     if measure == "Total":
         y_str = measure + " " + attr
     if measure == "Minimo" or measure == "Maximo":

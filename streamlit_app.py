@@ -36,6 +36,7 @@ label_indicators_filtrados_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a p
 datos_a_excluir = ['Africa Eastern', 'Africa Western', 'World', 'Early', 'dividend','Europe & Central Asia', 'European Union', 'Euro area', 'Fragile','Heavily', 'High', 'IBRD', 'IDA', 'Latin', 'Low', 'Middle', 'North America', 'OECD', 'Other small', 'Post-', 'Pre-', 'Upper', 'East Asia & Pacific', 'South Asia']
 types = ["Media","Total","Mediana","Maximo","Minimo"]
 
+condicion_exclusion = False
 for palabra in datos_a_excluir:
     condicion_exclusion = condicion_exclusion | hechos['pais'].str.contains(palabra)
 

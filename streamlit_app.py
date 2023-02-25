@@ -98,13 +98,86 @@ def find_indicador_value_pais(min_max,attribute):
         return_indicador_value_pais = df_find.nlargest(1, 'valor')
     return return_indicador_value_pais
 
-
+def group_measure_by_attribute(aspect,attribute,measure):
+    df_data = df_pivot
+    df_return = pd.DataFrame()
+    if(measure == "Total"):
+        if(attribute == "per_allsp.adq_pop_tot" or attribute == "per_si_allsi.adq_pop_tot" or attribute == "NY.GDP.PCAP.KD.ZG" or attribute == "NY.GDP.MKTP.KD.ZG"):
+            measure = "Mean"
+        else:
+            df_return = df_data.groupby([aspect]).sum()            
     
+    if(measure == "Media"):
+        df_return = df_data.groupby([aspect]).mean()
+        
+    if(measure == "Mediana"):
+        df_return = df_data.groupby([aspect]).median()
+    
+    if(measure == "Minimo"):
+        df_return = df_data.groupby([aspect]).min()
+    
+    if(measure == "Maximo"):
+        df_return = df_data.groupby([aspect]).max()
+    
+    df_return["aspect"] = df_return.index
+    if aspect == "team":
+        df_return = df_return.sort_values(by=[attribute], ascending = False)
+    return df_return
+
 ########################
 ### ANALYSIS METHODS ###
 ########################
 
-
+def plot_x_per_team(attr,measure):
+    rc = {'figure.figsize':(8,4.5),
+          'axes.facecolor':'#0e1117',
+          'axes.edgecolor': '#0e1117',
+          'axes.labelcolor': 'white',
+          'figure.facecolor': '#0e1117',
+          'patch.edgecolor': '#0e1117',
+          'text.color': 'white',
+          'xtick.color': 'white',
+          'ytick.color': 'white',
+          'grid.color': 'grey',
+          'font.size' : 8,
+          'axes.labelsize': 12,
+          'xtick.labelsize': 8,
+          'ytick.labelsize': 12}
+    
+    plt.rcParams.update(rc)
+    fig, ax = plt.subplots()
+    ### Goals
+    attribute = label_indicators_filtrados_dict[attr]
+    df_plot = pd.DataFrame()
+    df_plot = group_measure_by_attribute("pais",attribute,measure)
+    
+    ax = sns.barplot(x="aspect", y=attribute, data=df_plot.reset_index(), color = "#b80606")
+    y_str = measure + " " + attr + " " + "per Game"
+    if measure == "Total":
+        y_str = measure + " " + attr
+    if measure == "Minimo" or measure == "Maximo":
+        y_str = measure + " " + attr + "in a Game"
+    ax.set(xlabel = "Pais", ylabel = y_str)
+    plt.xticks(rotation=66,horizontalalignment="right")
+    if measure == "Media" or attribute in ["per_allsp.adq_pop_tot","per_si_allsi.adq_pop_tot","NY.GDP.PCAP.KD.ZG","NY.GDP.MKTP.KD.ZG"]:
+        for p in ax.patches:
+            ax.annotate(format(p.get_height(), '.2f'), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 18),
+                   rotation = 90,
+                   textcoords = 'offset points')
+    else:
+        for p in ax.patches:
+            ax.annotate(format(str(int(p.get_height()))), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 18),
+                   rotation = 90,
+                   textcoords = 'offset points')
+    st.pyplot(fig)
 
 def build_resultado_return_string(return_indicador_value_pais,min_max,attribute):
     df_find_result = return_indicador_value_pais
@@ -229,7 +302,7 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
 else:
     row17_spacer1, row17_1, row17_spacer2 = st.columns((.2, 7.1, .2))
     with row17_1:
-        st.warning('Unfortunately this analysis is only available if all teams are included')
+        st.warning('Este analisis solo está disponible seleccionando todos los paises')
 
 if all_paises_selected == 'Incluir todos los paises y regiones':
     row16_spacer1, row16_1, row16_2, row16_spacer2  = st.columns((0.5, 4.5, 1.5, 0.5))
@@ -255,8 +328,19 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
         st.markdown(" " + str(df_data_filtered.loc[(df_data_filtered['anio'] == df_find_result.iloc[0]['anio']) &   (df_data_filtered['codigo_indicador'] == 'BM.TRF.PWKR.CD.DT'), 'valor'].values[0]))
 
 ### PAIS ###
-st.write(df_data_filtered)
-#df_pivot = df_data_filtered['pais','anio', 'codigo_indicador', 'valor']
+#Cambiamos formato del df (los valores de 'codigo_pais' ahora son columnas)
 df_pivot = df_data_filtered.pivot(index=['pais', 'anio','codigo_pais','codigo_nacionalidad','nationality'], columns='codigo_indicador', values='valor')
-# 
-st.write(df_pivot)
+row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
+with row4_1:
+    st.subheader('Analysis per Team')
+row5_spacer1, row5_1, row5_spacer2, row5_2, row5_spacer3  = st.columns((.2, 2.3, .4, 4.4, .2))
+with row5_1:
+    st.markdown('Investigate a variety of stats for each team. Which team scores the most goals per game? How does your team compare in terms of distance ran per game?')    
+    plot_x_per_pais_selected = st.selectbox ("Which attribute do you want to analyze?", list(label_indicators_filtrados_dict.keys()), key = 'attribute_team')
+    plot_x_per_pais_type = st.selectbox ("Which measure do you want to analyze?", types, key = 'measure_team')
+    specific_team_colors = st.checkbox("Use team specific color scheme")
+with row5_2:
+    if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
+        plot_x_per_team(plot_x_per_pais_selected, plot_x_per_pais_type)
+    else:
+        st.warning('Please select at least one team')

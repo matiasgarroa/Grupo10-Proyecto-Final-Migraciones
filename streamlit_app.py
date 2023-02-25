@@ -199,7 +199,7 @@ with row12_1:
 
 if all_paises_selected == 'Incluir todos los paises y regiones':
 
-    row13_spacer1, row13_1, row13_spacer2, row13_2, row13_spacer3, row13_3, row13_spacer4   = st.columns((.2, 2.3, .2, 2.3, .2, 2.3, .2))
+    row13_spacer1, row13_1, row13_spacer2, row13_2, row13_spacer3 = st.columns((.2, 2.3, .2, 5, .2))
     with row13_1:
         show_me_hi_lo = st.selectbox ("", ["Valor maximo","Valor minimo"], key = 'hi_lo') 
     with row13_2:

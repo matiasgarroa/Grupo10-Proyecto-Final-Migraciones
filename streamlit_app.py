@@ -3,6 +3,8 @@ from google.oauth2 import service_account
 from google.cloud import bigquery
 import pandas as pd
 import pandas_gbq
+import matplotlib as plt
+import seaborn as sns
 
 st.set_page_config(layout="wide")
 
@@ -31,7 +33,8 @@ label_indicators_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a precios act
 
 label_indicators_filtrados_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a precios actuales)':'NY.GDP.MKTP.CN','PIB per cápita (UMN actual)':'NY.GDP.PCAP.CN','Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)':'per_allsp.adq_pop_tot','Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)':'per_si_allsi.adq_pop_tot','Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)':'BM.TRF.PWKR.CD.DT','Crecimiento del PIB per cápita (porcentaje anual)':'NY.GDP.PCAP.KD.ZG','Crecimiento del PIB (porcentaje anual)':'NY.GDP.MKTP.KD.ZG'}
 
-datos_a_excluir = ['Africa Eastern', 'Africa Western', 'World', 'Early', 'dividend','Europe & Central Asia', 'European Union', 'Euro area', 'Fragile','Heavily', 'High', 'IBRD', 'IDA', 'Latin', 'Low', 'Middle', 'North America', 'OECD', 'Other small', 'Post-', 'Pre-', 'Upper', 'East Asia & Pacific', 'South Asia' ]
+datos_a_excluir = ['Africa Eastern', 'Africa Western', 'World', 'Early', 'dividend','Europe & Central Asia', 'European Union', 'Euro area', 'Fragile','Heavily', 'High', 'IBRD', 'IDA', 'Latin', 'Low', 'Middle', 'North America', 'OECD', 'Other small', 'Post-', 'Pre-', 'Upper', 'East Asia & Pacific', 'South Asia']
+types = ["Mean","Absolute","Median","Maximum","Minimum"]
 
 ### Helper Methods ###
 def get_unique_anios(df_data):
@@ -94,6 +97,85 @@ def find_indicador_value_pais(min_max,attribute):
     if(min_max == "Valor maximo"):
         return_indicador_value_pais = df_find.nlargest(1, 'valor')
     return return_indicador_value_pais
+
+def group_measure_by_attribute(aspect,attribute,measure):
+    df_data = df_data_filtered
+    df_return = pd.DataFrame()
+    if(measure == "Total"):
+        if(attribute == "pass_ratio" or attribute == "tackle_ratio" or attribute == "possession"):
+            measure = "Media"
+        else:
+            df_return = df_data.groupby([aspect]).sum()            
+    
+    if(measure == "Media"):
+        df_return = df_data.groupby([aspect]).mean()
+        
+    if(measure == "Mediana"):
+        df_return = df_data.groupby([aspect]).median()
+    
+    if(measure == "Minimo"):
+        df_return = df_data.groupby([aspect]).min()
+    
+    if(measure == "Maximo"):
+        df_return = df_data.groupby([aspect]).max()
+    
+    df_return["aspect"] = df_return.index
+    if aspect == "pais":
+        df_return = df_return.sort_values(by=[attribute], ascending = False)
+    return df_return
+    
+
+########################
+### ANALYSIS METHODS ###
+########################
+
+def plot_x_per_season(attr,measure):
+    rc = {'figure.figsize':(8,4.5),
+          'axes.facecolor':'#0e1117',
+          'axes.edgecolor': '#0e1117',
+          'axes.labelcolor': 'white',
+          'figure.facecolor': '#0e1117',
+          'patch.edgecolor': '#0e1117',
+          'text.color': 'white',
+          'xtick.color': 'white',
+          'ytick.color': 'white',
+          'grid.color': 'grey',
+          'font.size' : 12,
+          'axes.labelsize': 12,
+          'xtick.labelsize': 12,
+          'ytick.labelsize': 12}
+    plt.rcParams.update(rc)
+    fig, ax = plt.subplots()
+    ### Goals
+    attribute = label_indicators_filtrados_dict[attr]
+    df_plot = pd.DataFrame()
+    df_plot = group_measure_by_attribute("anio",attribute,measure)
+    ax = sns.barplot(x="aspect", y=attribute, data=df_plot, color = "#b80606")
+    y_str = measure + " " + attr + " " + " per Team"
+    if measure == "Total":
+        y_str = measure + " " + attr
+    if measure == "Minimo" or measure == "Maximo":
+        y_str = measure + " " + attr + " por País"
+        
+    ax.set(xlabel = "Año", ylabel = y_str)
+    if measure == "Media" or attribute in ["distance","pass_ratio","possession","tackle_ratio"]:
+        for p in ax.patches:
+            ax.annotate(format(p.get_height(), '.2f'), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 15),
+                   textcoords = 'offset points')
+    else:
+        for p in ax.patches:
+            ax.annotate(format(str(int(p.get_height()))), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 15),
+                   textcoords = 'offset points')
+    st.pyplot(fig)
+
 
 def build_resultado_return_string(return_indicador_value_pais,min_max,attribute):
     df_find_result = return_indicador_value_pais
@@ -242,3 +324,18 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
         st.markdown(" " + str(df_data_filtered.loc[(df_data_filtered['anio'] == df_find_result.iloc[0]['anio']) &   (df_data_filtered['codigo_indicador'] == 'per_allsp.adq_pop_tot'), 'valor'].values[0]))
         st.markdown(" " + str(df_data_filtered.loc[(df_data_filtered['anio'] == df_find_result.iloc[0]['anio']) &   (df_data_filtered['codigo_indicador'] == 'per_si_allsi.adq_pop_tot'), 'valor'].values[0]))
         st.markdown(" " + str(df_data_filtered.loc[(df_data_filtered['anio'] == df_find_result.iloc[0]['anio']) &   (df_data_filtered['codigo_indicador'] == 'BM.TRF.PWKR.CD.DT'), 'valor'].values[0]))
+
+### PAIS ###
+row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
+with row4_1:
+    st.subheader('Analisis por Pais')
+row5_spacer1, row5_1, row5_spacer2, row5_2, row5_spacer3  = st.columns((.2, 2.3, .4, 4.4, .2))
+with row5_1:
+    st.markdown('Investigue una variedad de estadísticas para cada país.')    
+    plot_x_per_team_selected = st.selectbox ("¿Qué atributo desea analizar?", list(label_indicators_filtrados_dict.keys()), key = 'attribute_pais')
+    plot_x_per_team_type = st.selectbox ("¿Qué medida desea analizar?", types, key = 'measure_pais')
+with row5_2:
+    if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
+        plot_x_per_team(plot_x_per_team_selected, plot_x_per_team_type)
+    else:
+        st.warning('Please selecciona al menos un pais')

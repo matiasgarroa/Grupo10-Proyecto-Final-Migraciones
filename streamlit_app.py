@@ -217,7 +217,7 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
     with row15_1:
         st.subheader(str(df_find_result.iloc[0]['pais']))
     with row15_2:
-        st.subheader(int(df_find_result.iloc[0]['anio']))
+        st.subheader('Año ' + str(int(df_find_result.iloc[0]['anio'])))
 else:
     row17_spacer1, row17_1, row17_spacer2 = st.columns((.2, 7.1, .2))
     with row17_1:

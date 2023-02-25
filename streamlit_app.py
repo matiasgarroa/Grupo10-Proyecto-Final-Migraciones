@@ -195,7 +195,7 @@ st.text('')
 row12_spacer1, row12_1, row12_spacer2 = st.columns((.2, 7.1, .2))
 with row12_1:
     st.subheader('Encontrar KPI')
-    st.markdown('Muestra el pais  con...')  
+    st.markdown('Muestra el pais con el...')  
 
 if all_paises_selected == 'Incluir todos los paises y regiones':
 

@@ -176,6 +176,55 @@ def plot_x_per_season(attr,measure):
                    textcoords = 'offset points')
     st.pyplot(fig)
 
+def plot_x_per_team(attr,measure): 
+    rc = {'figure.figsize':(8,4.5),
+          'axes.facecolor':'#0e1117',
+          'axes.edgecolor': '#0e1117',
+          'axes.labelcolor': 'white',
+          'figure.facecolor': '#0e1117',
+          'patch.edgecolor': '#0e1117',
+          'text.color': 'white',
+          'xtick.color': 'white',
+          'ytick.color': 'white',
+          'grid.color': 'grey',
+          'font.size' : 8,
+          'axes.labelsize': 12,
+          'xtick.labelsize': 8,
+          'ytick.labelsize': 12}
+    
+    plt.rcParams.update(rc)
+    fig, ax = plt.subplots()
+    ### Goals
+    attribute = label_indicators_filtrados_dict[attr]
+    df_plot = pd.DataFrame()
+    df_plot = group_measure_by_attribute("pais",attribute,measure)
+    ax = sns.barplot(x="aspect", y=attribute, data=df_plot.reset_index(), color = "#b80606")
+    y_str = measure + " " + attr + " " + "per Game"
+    if measure == "Total":
+        y_str = measure + " " + attr
+    if measure == "Minimo" or measure == "Maximo":
+        y_str = measure + " " + attr + "in a Game"
+    ax.set(xlabel = "Team", ylabel = y_str)
+    plt.xticks(rotation=66,horizontalalignment="right")
+    if measure == "Mean" or attribute in ["distance","pass_ratio","possession","tackle_ratio"]:
+        for p in ax.patches:
+            ax.annotate(format(p.get_height(), '.2f'), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 18),
+                   rotation = 90,
+                   textcoords = 'offset points')
+    else:
+        for p in ax.patches:
+            ax.annotate(format(str(int(p.get_height()))), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 18),
+                   rotation = 90,
+                   textcoords = 'offset points')
+    st.pyplot(fig)
 
 def build_resultado_return_string(return_indicador_value_pais,min_max,attribute):
     df_find_result = return_indicador_value_pais

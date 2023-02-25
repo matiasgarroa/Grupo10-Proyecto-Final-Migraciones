@@ -217,3 +217,17 @@ else:
     row17_spacer1, row17_1, row17_spacer2 = st.columns((.2, 7.1, .2))
     with row17_1:
         st.warning('Unfortunately this analysis is only available if all teams are included')
+
+if all_paises_selected == 'Incluir todos los paises y regiones':
+    row16_spacer1, row16_1, row16_2, row16_3, row16_4, row16_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
+    with row16_1:
+        st.markdown('Migración Neta')
+        st.markdown('PIB (UMN a precios actuales)')
+        st.markdown("Crecimiento del PIB")
+        st.markdown('PIB per cápita (UMN actual)')
+        st.markdown("Crecimiento del PIB per cápita")
+        st.markdown("Idoneidad de los programas de trabajo y protección social")
+        st.markdown("Idoneidad de los programas de seguro social")
+        st.markdown("Remesas de trabajadores y compensación de empleados")
+
+label_indicators_filtrados_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a precios actuales)':'NY.GDP.MKTP.CN','PIB per cápita (UMN actual)':'NY.GDP.PCAP.CN','Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)':'per_allsp.adq_pop_tot','Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)':'per_si_allsi.adq_pop_tot','Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)':'BM.TRF.PWKR.CD.DT','Crecimiento del PIB per cápita (porcentaje anual)':'NY.GDP.PCAP.KD.ZG','Crecimiento del PIB (porcentaje anual)':'NY.GDP.MKTP.KD.ZG'}

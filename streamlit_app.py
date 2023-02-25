@@ -36,6 +36,12 @@ label_indicators_filtrados_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a p
 datos_a_excluir = ['Africa Eastern', 'Africa Western', 'World', 'Early', 'dividend','Europe & Central Asia', 'European Union', 'Euro area', 'Fragile','Heavily', 'High', 'IBRD', 'IDA', 'Latin', 'Low', 'Middle', 'North America', 'OECD', 'Other small', 'Post-', 'Pre-', 'Upper', 'East Asia & Pacific', 'South Asia']
 types = ["Media","Total","Mediana","Maximo","Minimo"]
 
+for palabra in datos_a_excluir:
+        condicion_exclusion = condicion_exclusion | hechos['pais'].str.contains(palabra)
+
+mascara = ~condicion_exclusion
+hechos = hechos.loc[mascara]
+
 ### Helper Methods ###
 def get_unique_anios(df_data):
     #devuelve los valores unicos de hechos['anio'] en forma de lista
@@ -128,7 +134,7 @@ def group_measure_by_attribute(aspect,attribute,measure):
 ### ANALYSIS METHODS ###
 ########################
 
-def plot_x_per_team(attr,measure):
+def plot_x_per_pais(attr,measure):
     rc = {'figure.figsize':(8,4.5),
           'axes.facecolor':'#0e1117',
           'axes.edgecolor': '#0e1117',
@@ -177,7 +183,7 @@ def plot_x_per_team(attr,measure):
                    xytext = (0, 18),
                    rotation = 90,
                    textcoords = 'offset points')
-    st.pyplot(fig[:10])
+    st.pyplot(fig)
 
 def build_resultado_return_string(return_indicador_value_pais,min_max,attribute):
     df_find_result = return_indicador_value_pais
@@ -340,6 +346,6 @@ with row5_1:
     plot_x_per_pais_type = st.selectbox ("¿Qué medida deseas analizar?", types, key = 'measure_pais')
 with row5_2:
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
-        plot_x_per_team(plot_x_per_pais_selected, plot_x_per_pais_type)
+        plot_x_per_pais(plot_x_per_pais_selected, plot_x_per_pais_type)
     else:
         st.warning('Por favor selecciona al menos un pais')

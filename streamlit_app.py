@@ -120,7 +120,7 @@ def group_measure_by_attribute(aspect,attribute,measure):
         df_return = df_data.groupby([aspect]).max()
     
     df_return["aspect"] = df_return.index
-    if aspect == "pais":
+    if aspect == "anio":
         df_return = df_return.sort_values(by=[attribute], ascending = False)
     return df_return
     

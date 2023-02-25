@@ -210,9 +210,14 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
         return_indicador_value_pais = find_indicador_value_pais(show_me_hi_lo,show_me_aspect)
         df_find_result = build_resultado_return_string(return_indicador_value_pais,show_me_hi_lo,show_me_aspect)
 
-    row15_spacer1, row15_1, row15_spacer2  = st.columns((0.5, 1.5, 0.5))
+    #row15_spacer1, row15_1, row15_spacer2  = st.columns((0.5, 1.5, 0.5))
+    #with row15_1:
+    #    st.subheader(str(df_find_result.iloc[0]['pais']))
+    row15_spacer1, row15_1, row15_2, row15_spacer2  = st.columns((0.5, 4.5, 1.5, 0.5))
     with row15_1:
         st.subheader(str(df_find_result.iloc[0]['pais']))
+    with row15_2:
+        st.subheader(str(df_find_result.iloc[0]['anio']))
 else:
     row17_spacer1, row17_1, row17_spacer2 = st.columns((.2, 7.1, .2))
     with row17_1:

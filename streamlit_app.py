@@ -342,4 +342,4 @@ with row5_2:
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
         plot_x_per_team(plot_x_per_pais_selected, plot_x_per_pais_type)
     else:
-        st.warning('Please select at least one team')
+        st.warning('Por favor selecciona al menos un pais')

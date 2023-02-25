@@ -135,6 +135,53 @@ def group_measure_by_attribute(aspect,attribute,measure):
 ### ANALYSIS METHODS ###
 ########################
 
+def plot_x_per_anio(attr,measure):
+    rc = {'figure.figsize':(8,4.5),
+          'axes.facecolor':'#0e1117',
+          'axes.edgecolor': '#0e1117',
+          'axes.labelcolor': 'white',
+          'figure.facecolor': '#0e1117',
+          'patch.edgecolor': '#0e1117',
+          'text.color': 'white',
+          'xtick.color': 'white',
+          'ytick.color': 'white',
+          'grid.color': 'grey',
+          'font.size' : 12,
+          'axes.labelsize': 12,
+          'xtick.labelsize': 12,
+          'ytick.labelsize': 12}
+    plt.rcParams.update(rc)
+    fig, ax = plt.subplots()
+    ### Goals
+    attribute = label_indicators_filtrados_dict[attr]
+    df_plot = pd.DataFrame()
+    df_plot = group_measure_by_attribute("season",attribute,measure)
+    ax = sns.barplot(x="aspect", y=attribute, data=df_plot, color = "#b80606")
+    y_str = measure + " " + attr + " " + " per Team"
+    if measure == "Total":
+        y_str = measure + " " + attr
+    if measure == "Minimo" or measure == "Maximo":
+        y_str = measure + " " + attr + " por país"
+        
+    ax.set(xlabel = "Año", ylabel = y_str)
+    if measure == "Media" or attribute in ["per_allsp.adq_pop_tot","per_si_allsi.adq_pop_tot","NY.GDP.PCAP.KD.ZG","NY.GDP.MKTP.KD.ZG"]:
+        for p in ax.patches:
+            ax.annotate(format(p.get_height(), '.2f'), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 15),
+                   textcoords = 'offset points')
+    else:
+        for p in ax.patches:
+            ax.annotate(format(str(int(p.get_height()))), 
+                  (p.get_x() + p.get_width() / 2., p.get_height()),
+                   ha = 'center',
+                   va = 'center', 
+                   xytext = (0, 15),
+                   textcoords = 'offset points')
+    st.pyplot(fig)
+
 def plot_x_per_pais(attr,measure):
     rc = {'figure.figsize':(8,4.5),
           'axes.facecolor':'#0e1117',
@@ -348,5 +395,20 @@ with row5_1:
 with row5_2:
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
         plot_x_per_pais(plot_x_per_pais_selected, plot_x_per_pais_type)
+    else:
+        st.warning('Por favor selecciona al menos un pais')
+
+### ANIO ###
+row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
+with row6_1:
+    st.subheader('Analisis por año')
+row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3  = st.columns((.2, 2.3, .4, 4.4, .2))
+with row7_1:
+    st.markdown('Consulta una variedad de estadísticas por año.')    
+    plot_x_per_season_selected = st.selectbox ("Which attribute do you want to analyze?", list(label_indicators_filtrados_dict.keys()), key = 'attribute_season')
+    plot_x_per_season_type = st.selectbox ("Which measure do you want to analyze?", types, key = 'measure_season')
+with row7_2:
+    if all_paises_selected != 'Select teams manually (choose below)' or selected_paises:
+        plot_x_per_anio(plot_x_per_season_selected,plot_x_per_season_type)
     else:
         st.warning('Por favor selecciona al menos un pais')

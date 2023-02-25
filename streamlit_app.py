@@ -219,7 +219,7 @@ else:
         st.warning('Unfortunately this analysis is only available if all teams are included')
 
 if all_paises_selected == 'Incluir todos los paises y regiones':
-    row16_spacer1, row16_1, row16_2, row16_3, row16_4, row16_spacer2  = st.columns((0.5, 1.5, 1.5, 1, 2, 0.5))
+    row16_spacer1, row16_1, row16_2, row16_spacer2  = st.columns((0.5, 4.5, 1.5, 0.5))
     with row16_1:
         st.markdown('Migración Neta')
         st.markdown('PIB (UMN a precios actuales)')

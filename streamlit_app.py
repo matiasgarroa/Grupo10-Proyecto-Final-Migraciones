@@ -3,7 +3,7 @@ from google.oauth2 import service_account
 from google.cloud import bigquery
 import pandas as pd
 import pandas_gbq
-import matplotlib as plt
+from matplotlib import pyplot as plt
 import seaborn as sns
 
 st.set_page_config(layout="wide")

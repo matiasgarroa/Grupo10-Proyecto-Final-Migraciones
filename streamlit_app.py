@@ -255,6 +255,7 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
         st.markdown(" " + str(df_data_filtered.loc[(df_data_filtered['anio'] == df_find_result.iloc[0]['anio']) &   (df_data_filtered['codigo_indicador'] == 'BM.TRF.PWKR.CD.DT'), 'valor'].values[0]))
 
 ### PAIS ###
+df_pivot = df_data_filtered['pais','anio','codigo_indicador', 'valor']
 df_pivot = df_data_filtered.pivot(index=['pais', 'anio'], columns='codigo_indicador', values='valor')
 
 st.write(df_pivot)

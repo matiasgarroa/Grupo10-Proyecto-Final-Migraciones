@@ -332,13 +332,12 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
 df_pivot = df_data_filtered.pivot(index=['pais', 'anio','codigo_pais','codigo_nacionalidad','nationality'], columns='codigo_indicador', values='valor')
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:
-    st.subheader('Analysis per Team')
+    st.subheader('Analisis por país')
 row5_spacer1, row5_1, row5_spacer2, row5_2, row5_spacer3  = st.columns((.2, 2.3, .4, 4.4, .2))
 with row5_1:
-    st.markdown('Investigate a variety of stats for each team. Which team scores the most goals per game? How does your team compare in terms of distance ran per game?')    
-    plot_x_per_pais_selected = st.selectbox ("Which attribute do you want to analyze?", list(label_indicators_filtrados_dict.keys()), key = 'attribute_team')
-    plot_x_per_pais_type = st.selectbox ("Which measure do you want to analyze?", types, key = 'measure_team')
-    specific_team_colors = st.checkbox("Use team specific color scheme")
+    st.markdown('Consulta una variedad de estadísticas sobre distintos paises. ')    
+    plot_x_per_pais_selected = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_filtrados_dict.keys()), key = 'attribute_pais')
+    plot_x_per_pais_type = st.selectbox ("¿Qué medida deseas analizar?", types, key = 'measure_pais')
 with row5_2:
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
         plot_x_per_team(plot_x_per_pais_selected, plot_x_per_pais_type)

@@ -177,7 +177,7 @@ def plot_x_per_team(attr,measure):
                    xytext = (0, 18),
                    rotation = 90,
                    textcoords = 'offset points')
-    st.pyplot(fig)
+    st.pyplot(fig[:10])
 
 def build_resultado_return_string(return_indicador_value_pais,min_max,attribute):
     df_find_result = return_indicador_value_pais

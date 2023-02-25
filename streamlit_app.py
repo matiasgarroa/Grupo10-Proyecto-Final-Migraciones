@@ -257,6 +257,6 @@ if all_paises_selected == 'Incluir todos los paises y regiones':
 ### PAIS ###
 st.write(df_data_filtered)
 #df_pivot = df_data_filtered['pais','anio', 'codigo_indicador', 'valor']
-#df_pivot = df_data_filtered.pivot(index=['pais', 'anio'], columns='codigo_indicador', values='valor')
+df_pivot = df_data_filtered.pivot(index=['pais', 'anio','codigo_pais','codigo_nacionalidad','nationality'], columns='codigo_indicador', values='valor')
 # 
-#st.write(df_pivot)
+st.write(df_pivot)

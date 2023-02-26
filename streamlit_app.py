@@ -34,6 +34,8 @@ label_indicators_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a precios act
 
 label_indicators_filtrados_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a precios actuales)':'NY.GDP.MKTP.CN','PIB per cápita (UMN actual)':'NY.GDP.PCAP.CN','Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)':'per_allsp.adq_pop_tot','Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)':'per_si_allsi.adq_pop_tot','Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)':'BM.TRF.PWKR.CD.DT','Crecimiento del PIB per cápita (porcentaje anual)':'NY.GDP.PCAP.KD.ZG','Crecimiento del PIB (porcentaje anual)':'NY.GDP.MKTP.KD.ZG'}
 
+label_indicators_mapa = {'Entradas de población extranjera por nacionalidad ':'B11','Salidas de población extranjera por nacionalidad ':'B12','Stock de población nacida en el extranjero por país de nacimiento':'B14','Stock de población extranjera por nacionalidad':'B15'}
+
 label_paises = {'Argentina', 'Uruguay', 'Colombia'}
 
 datos_a_excluir = ['Africa Eastern', 'Africa Western', 'World', 'Early', 'dividend','Europe & Central Asia', 'European Union', 'Euro area', 'Fragile','Heavily', 'High', 'IBRD', 'IDA', 'Latin', 'Low', 'Middle', 'North America', 'OECD', 'Other small', 'Post-', 'Pre-', 'Upper', 'East Asia & Pacific', 'South Asia']
@@ -261,7 +263,8 @@ def build_resultado_return_string(return_indicador_value_pais,min_max,attribute)
     st.markdown(string1)
     return df_find_result
 
-def mapa_lat(df_mapa):
+def mapa_lat(pais, indicad):
+    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == pais) & (df_data_filtered['codigo_indicador'] == indicad)]
     fig = px.choropleth(df_mapa, 
                         locations='codigo_pais', 
                         color='valor',
@@ -434,9 +437,9 @@ row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3  = st.columns((.2, 2.3,
 with row7_1:
     st.markdown('Consulta cuales son los paises latinoamericanos mas elegidos a la hora de migrar.')    
     paises_lat = st.selectbox ("¿Qué pais deseas visualizar?", label_paises, key = 'pais_mapa')
-    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == paises_lat) & (df_data_filtered['codigo_indicador'] == 'B11')]
+    pais_indicador = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_filtrados_dict.keys()), key = 'attribute_anio')
 with row7_2:
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
-        mapa_lat(df_mapa)
+        mapa_lat(paises_lat, pais_indicador)
     else:
         st.warning('Por favor selecciona al menos un pais')

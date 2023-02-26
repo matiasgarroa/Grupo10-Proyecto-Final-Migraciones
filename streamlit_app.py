@@ -440,7 +440,7 @@ with row7_1:
     paises_lat = st.selectbox ("¿Qué pais deseas visualizar?", label_paises, key = 'pais_mapa')
     pais_indicador = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_mapa.keys()), key = 'attribute_map')
     df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == paises_lat) & (df_data_filtered['codigo_indicador'] == pais_indicador)]
-    df_mapa = df_mapa.reindex()
+    df_mapa = df_mapa.reset_index(drop=true)
 with row7_2:
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
         mapa_lat(df_mapa)

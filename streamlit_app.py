@@ -437,7 +437,7 @@ row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3  = st.columns((.2, 2.3,
 with row7_1:
     st.markdown('Consulta cuales son los paises latinoamericanos mas elegidos a la hora de migrar.')    
     paises_lat = st.selectbox ("¿Qué pais deseas visualizar?", label_paises, key = 'pais_mapa')
-    pais_indicador = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_filtrados_dict.keys()), key = 'attribute_anio')
+    pais_indicador = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_mapa.keys()), key = 'attribute_map')
 with row7_2:
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
         mapa_lat(paises_lat, pais_indicador)

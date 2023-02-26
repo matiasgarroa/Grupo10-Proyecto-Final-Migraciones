@@ -5,6 +5,7 @@ import pandas as pd
 import pandas_gbq
 from matplotlib import pyplot as plt
 import seaborn as sns
+import plotly.graph_objs as go
 
 st.set_page_config(layout="wide")
 
@@ -412,3 +413,22 @@ with row7_2:
         plot_x_per_anio(plot_x_per_anio_selected,plot_x_per_anio_type)
     else:
         st.warning('Por favor selecciona al menos un pais')
+
+#########
+
+data = dict(type='choropleth',
+                locations=['USA', 'CAN', 'MEX'],
+                locationmode='ISO-3',
+                colorscale='Viridis',
+                text=['Estados Unidos', 'Canadá', 'México'],
+                z=[1, 2, 3],
+                colorbar={'title': 'Países'})
+
+# Define el diseño del mapa
+layout = dict(title='Unión de países', geo=dict(scope='north america'))
+
+# Crea el objeto figura
+fig = go.Figure(data=[data], layout=layout)
+
+# Dibuja el mapa
+st.plotly_chart(fig)

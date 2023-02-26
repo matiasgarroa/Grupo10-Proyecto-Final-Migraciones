@@ -3,3 +3,4 @@ pandas
 pandas-gbq
 matplotlib
 seaborn
+plotly

@@ -265,7 +265,7 @@ def mapa_lat(df_mapa):
     fig = px.choropleth(df_mapa, 
                         locations='codigo_pais', 
                         color='valor',
-                        title='Unión de Argentina con otros países')
+                        title='Unión de ' + df_mapa['nacionality'][0] + ' con otros países')
 
     return st.plotly_chart(fig)
 

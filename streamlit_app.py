@@ -416,7 +416,7 @@ with row6_1:
 row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3  = st.columns((.2, 2.3, .4, 4.4, .2))
 with row7_1:
     st.markdown('Consulta una variedad de estadísticas por año.')    
-    plot_x_per_anio_selected = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_filtrados_dict.keys()), key = 'attribute_anio')
+    plot_x_per_anio_selected = st.selectbox ("¿Qué atributo deseas analizar?", label_indicators_filtrados_dict , key = 'pais_mapa')
     plot_x_per_anio_type = st.selectbox ("¿Qué medida deseas analizar?", types, key = 'measure_anio')
 with row7_2:
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:

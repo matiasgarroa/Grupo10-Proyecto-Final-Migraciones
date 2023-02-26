@@ -5,7 +5,7 @@ import pandas as pd
 import pandas_gbq
 from matplotlib import pyplot as plt
 import seaborn as sns
-import plotly.graph_objs as go
+import plotly.express as px
 
 st.set_page_config(layout="wide")
 
@@ -419,3 +419,11 @@ with row7_2:
 df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == 'Argentina')]
 
 st.write(df_mapa)
+
+
+fig = px.choropleth(df_mapa, 
+                    locations='codigo_pais', 
+                    color='union_argentina',
+                    title='Unión de Argentina con otros países')
+
+fig.show()

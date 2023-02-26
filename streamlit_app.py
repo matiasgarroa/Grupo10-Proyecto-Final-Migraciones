@@ -423,7 +423,7 @@ st.write(df_mapa)
 
 fig = px.choropleth(df_mapa, 
                     locations='codigo_pais', 
-                    color='union_argentina',
+                    color='valor',
                     title='Unión de Argentina con otros países')
 
 fig.show()

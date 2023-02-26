@@ -439,8 +439,8 @@ with row7_1:
     st.markdown('Consulta cuales son los paises latinoamericanos mas elegidos a la hora de migrar.')    
     paises_lat = st.selectbox ("¿Qué pais deseas visualizar?", label_paises, key = 'pais_mapa')
     pais_indicador = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_mapa.keys()), key = 'codigo_indicador')
-    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == paises_lat) ]
-                                   #& (df_data_filtered['codigo_indicador'] == pais_indicador)]
+    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == paises_lat)]
+    df_mapa = df_mapa.loc[(df_data_filtered['codigo_indicador'] == pais_indicador)]
 with row7_2:
     st.write(df_mapa)
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:

@@ -263,7 +263,7 @@ def build_resultado_return_string(return_indicador_value_pais,min_max,attribute)
     st.markdown(string1)
     return df_find_result
 
-def mapa_lat(pais, indicad):
+def mapa_lat(df_mapa):
     
     fig = px.choropleth(df_mapa, 
                         locations='codigo_pais', 

@@ -426,4 +426,4 @@ fig = px.choropleth(df_mapa,
                     color='valor',
                     title='Unión de Argentina con otros países')
 
-fig.show()
+st.plotly_chart(fig)

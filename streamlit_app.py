@@ -270,7 +270,8 @@ def mapa_lat(pais, indicad):
                         color='valor',
                         title='Unión de ' + pais + ' con otros países')
 
-    return st.plotly_chart(fig)
+    st.plotly_chart(fig)
+    return df_mapa
 
 ####################
 ### INTRODUCCIÓN ###

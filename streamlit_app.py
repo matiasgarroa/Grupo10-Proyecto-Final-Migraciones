@@ -264,7 +264,7 @@ def build_resultado_return_string(return_indicador_value_pais,min_max,attribute)
     return df_find_result
 
 def mapa_lat(pais, indicad):
-    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == pais) & (df_data_filtered['codigo_indicador'] == indicad)]
+    
     fig = px.choropleth(df_mapa, 
                         locations='codigo_pais', 
                         color='valor',
@@ -439,8 +439,9 @@ with row7_1:
     st.markdown('Consulta cuales son los paises latinoamericanos mas elegidos a la hora de migrar.')    
     paises_lat = st.selectbox ("¿Qué pais deseas visualizar?", label_paises, key = 'pais_mapa')
     pais_indicador = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_mapa.keys()), key = 'attribute_map')
+    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == paises_lat) & (df_data_filtered['codigo_indicador'] == pais_indicador)]
 with row7_2:
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
-        mapa_lat(paises_lat, pais_indicador)
+        mapa_lat(df_mapa)
     else:
         st.warning('Por favor selecciona al menos un pais')

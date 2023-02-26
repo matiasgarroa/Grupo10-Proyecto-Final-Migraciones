@@ -416,19 +416,6 @@ with row7_2:
 
 #########
 
-data = dict(type='choropleth',
-                locations=['USA', 'CAN', 'MEX'],
-                locationmode='ISO-3',
-                colorscale='Viridis',
-                text=['Estados Unidos', 'Canadá', 'México'],
-                z=[1, 2, 3],
-                colorbar={'title': 'Países'})
+df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == 'Argentina')]
 
-# Define el diseño del mapa
-layout = dict(title='Unión de países', geo=dict(scope='north america'))
-
-# Crea el objeto figura
-fig = go.Figure(data=[data], layout=layout)
-
-# Dibuja el mapa
-st.plotly_chart(fig)
+st.write(df_mapa)

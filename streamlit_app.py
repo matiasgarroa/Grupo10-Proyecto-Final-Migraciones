@@ -293,6 +293,27 @@ def mapa_lat(pais, attr):
     st.plotly_chart(fig)
     return df_mapa
 
+#def hacer_prediccion(pais, modelo, anio):
+#    if pais == 'Argentina':
+#        if modelo == 'Migracion Neta': 
+#        if modelo == 'PBI' :
+#        if modelo == 'PBI per capita':
+#    if pais == 'Bolivia':
+#    if pais == 'Brasil':
+#    if pais == 'Chile':
+#    if pais == 'Colombia':
+#    if pais == 'Ecuador':
+#    if pais == 'Paraguay':
+#    if pais == 'Perú':
+#    if pais == 'Uruguay':
+#    if pais == 'Venezuela':
+#
+#    predicciones = []
+#    for modelo in modelos:
+#        prediccion = modelo.predict(datos_entrada)
+#        predicciones.append(prediccion)
+#    return predicciones
+
 ####################
 ### INTRODUCCIÓN ###
 ####################
@@ -477,9 +498,9 @@ with row6_1:
 row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3  = st.columns((.2, 2.3, .4, 4.4, .2))
 with row7_1:
     st.markdown('Realiza estimaciones hacerca de Migraciones y PBI de paises latinoamericanos.')    
-    paises_lat = st.selectbox ("¿En qué pais deseas realizar la predicción?", paises_prediccion, key = 'paises_prediccion')
-    pais_modelo = st.selectbox ("¿Qué prediccion deseas ejecutar?", label_predicciones, key = 'label_predicciones')
-    p = st.slider ("¿Qué prediccion deseas ejecutar?", 2022, 2030)
+    pais_predict = st.selectbox ("¿En qué pais deseas realizar la predicción?", paises_prediccion, key = 'paises_prediccion')
+    modelo_predict = st.selectbox ("¿Qué prediccion deseas ejecutar?", label_predicciones, key = 'label_predicciones')
+    anio_predict = st.slider ("Escoge el año de tu predicción:", 2022, 2030)
     
 with row7_2:
-    mapa_lat(paises_lat, pais_indicador)
+    st.write(modelos)

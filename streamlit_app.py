@@ -6,6 +6,7 @@ import pandas_gbq
 from matplotlib import pyplot as plt
 import seaborn as sns
 import plotly.express as px
+import pickle
 
 st.set_page_config(layout="wide")
 
@@ -21,6 +22,14 @@ client = bigquery.Client(credentials=credentials)
 def read_dataframe(query):
     dataframe = pandas_gbq.read_gbq(query, project_id= "pi-soy-henry", credentials=credentials)
     return dataframe
+
+modelos = []
+
+# Cargar los modelos desde los archivos .pkl y añadirlos a la lista
+for archivo in ['Argentina_Migracion neta.pkl','Venezuela_PIB per capita (US$ a precios actuales).pkl','Venezuela_PIB (US$ a precios actuales).pkl','Venezuela_Migracion neta.pkl','Uruguay_PIB per capita (US$ a precios actuales).pkl','Uruguay_PIB (US$ a precios actuales).pkl','Uruguay_Migracion neta.pkl','Peru_PIB per capita (US$ a precios actuales).pkl','Peru_PIB (US$ a precios actuales).pkl','Peru_Migracion neta.pkl','Paraguay_PIB per capita (US$ a precios actuales).pkl','Paraguay_PIB (US$ a precios actuales).pkl','Paraguay_Migracion neta.pkl','Ecuador_PIB per capita (US$ a precios actuales).pkl','Ecuador_PIB (US$ a precios actuales).pkl','Ecuador_Migracion neta.pkl','Colombia_PIB per capita (US$ a precios actuales).pkl','Colombia_PIB (US$ a precios actuales).pkl','Colombia_Migracion neta.pkl','Chile_PIB per capita (US$ a precios actuales).pkl','Chile_PIB (US$ a precios actuales).pkl','Chile_Migracion neta.pkl','Brasil_PIB per capita (US$ a precios actuales).pkl','Brasil_PIB (US$ a precios actuales).pkl','Brasil_Migracion neta.pkl','Bolivia_PIB per capita (US$ a precios actuales).pkl','Bolivia_PIB (US$ a precios actuales).pkl','Bolivia_Migracion neta.pkl','Argentina_PIB per capita (US$ a precios actuales).pkl','Argentina_PIB (US$ a precios actuales).pkl']:
+    with open(archivo, 'rb') as f:
+        modelo = pickle.load(f)
+        modelos.append(modelo)
 
 #Importamos datos
 
@@ -40,6 +49,10 @@ label_paises = {'Argentina', 'Uruguay', 'Colombia'}
 
 datos_a_excluir = ['Africa Eastern', 'Africa Western', 'World', 'Early', 'dividend','Europe & Central Asia', 'European Union', 'Euro area', 'Fragile','Heavily', 'High', 'IBRD', 'IDA', 'Latin', 'Low', 'Middle', 'North America', 'OECD', 'Other small', 'Post-', 'Pre-', 'Upper', 'East Asia & Pacific', 'South Asia']
 types = ["Media","Total","Mediana","Maximo","Minimo"]
+
+paises_prediccion = {'Argentina', 'Bolivia', 'Brasil', 'Chile', 'Colombia', 'Ecuador', 'Paraguay', 'Perú', 'Uruguay', 'Venezuela'}
+label_predicciones = {'Migracione Neta', 'PBI', 'PBI per capita'}
+
 
 condicion_exclusion = False
 for palabra in datos_a_excluir:
@@ -457,3 +470,15 @@ with row7_1:
 with row7_2:
     mapa_lat(paises_lat, pais_indicador)
     
+### MACHINE LEARNING ###
+row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
+with row6_1:
+    st.subheader('Predicciones con Machine Learning')
+row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3  = st.columns((.2, 2.3, .4, 4.4, .2))
+with row7_1:
+    st.markdown('Realiza estimaciones hacerca de Migraciones y PBI de paises latinoamericanos.')    
+    paises_lat = st.selectbox ("¿En qué pais deseas realizar la predicción?", paises_prediccion, key = 'paises_prediccion')
+    pais_modelo = st.slider ("¿Qué prediccion deseas ejecutar?", label_predicciones, key = 'label_predicciones')
+    
+with row7_2:
+    mapa_lat(paises_lat, pais_indicador)

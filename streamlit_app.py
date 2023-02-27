@@ -27,8 +27,9 @@ modelos = []
 
 # Cargar los modelos desde los archivos .pkl y añadirlos a la lista
 for archivo in ['Modelos/Argentina_Migracion neta.pkl','Modelos/Argentina_PIB (US$ a precios actuales).pkl','Modelos/Argentina_PIB per capita (US$ a precios actuales).pkl','Modelos/Bolivia_Migracion neta.pkl','Modelos/Bolivia_PIB (US$ a precios actuales).pkl','Modelos/Bolivia_PIB per capita (US$ a precios actuales).pkl','Modelos/Brasil_Migracion neta.pkl','Modelos/Brasil_PIB (US$ a precios actuales).pkl','Modelos/Brasil_PIB per capita (US$ a precios actuales).pkl','Modelos/Chile_Migracion neta.pkl','Modelos/Chile_PIB (US$ a precios actuales).pkl','Modelos/Chile_PIB per capita (US$ a precios actuales).pkl','Modelos/Colombia_Migracion neta.pkl','Modelos/Colombia_PIB (US$ a precios actuales).pkl','Modelos/Colombia_PIB per capita (US$ a precios actuales).pkl','Modelos/Ecuador_Migracion neta.pkl','Modelos/Ecuador_PIB (US$ a precios actuales).pkl','Modelos/Ecuador_PIB per capita (US$ a precios actuales).pkl','Modelos/Paraguay_Migracion neta.pkl','Modelos/Paraguay_PIB (US$ a precios actuales).pkl','Modelos/Paraguay_PIB per capita (US$ a precios actuales).pkl','Modelos/Peru_Migracion neta.pkl','Modelos/Peru_PIB (US$ a precios actuales).pkl','Modelos/Peru_PIB per capita (US$ a precios actuales).pkl','Modelos/Uruguay_Migracion neta.pkl','Modelos/Uruguay_PIB (US$ a precios actuales).pkl','Modelos/Uruguay_PIB per capita (US$ a precios actuales).pkl','Modelos/Venezuela_Migracion neta.pkl','Modelos/Venezuela_PIB (US$ a precios actuales).pkl','Modelos/Venezuela_PIB per capita (US$ a precios actuales).pkl']:
-    modelo = pickle.load(archivo)
-    modelos.append(modelo)
+    with open(archivo) as f:
+        modelo = pickle.load(f)
+        modelos.append(modelo)
 
 #Importamos datos
 

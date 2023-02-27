@@ -1,5 +1,5 @@
-# <b>Proyecto Grupal: Flujos migratorios</b>
-# INGENIERIA DE DATOS.
+# FLUJOS MIGRATORIOS PROYECTO END TO END</b>
+### INGENIERIA DE DATOS.
 ### ARQUITECTIRA
 ![](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/blob/main/Semana%202/Data%20Engineering%20-%20Semana%202.pdf)
 Al tener un área de "landing zone", se puede validar la calidad de los datos recibidos antes de que entren al proceso de ETL. Esto permite detectar y corregir errores o inconsistencias en los datos antes de que se procesen y almacenen en el sistema. Asimismo, al tener un área de "staging", se puede hacer una validación adicional y preparar los datos para su transformación, lo que ayuda a mejorar aún más la calidad de los datos procesados y cargados en el sistema final.

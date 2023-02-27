@@ -51,3 +51,5 @@ garantizamos que el data Ware House esté actualizado, automatizando el proceso 
 5. Idoneidad de los programas de seguro social
 ##### flujo migratorios dashboards 
 ![](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/blob/main/Semana%203/flow%20map.jpeg)
+##### Visualización de los kpis 1,2 y 3 
+![](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/blob/main/Semana%203/dashboard%20kpi%20(PIB%2C%20MIGRACION%20NETA).JPG)

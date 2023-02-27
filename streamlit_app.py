@@ -433,7 +433,7 @@ with row7_1:
     plot_x_per_anio_selected = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_filtrados_dict.keys()), key = 'attribute_anio')
     plot_x_per_anio_type = st.selectbox ("¿Qué medida deseas analizar?", types, key = 'measure_anio')
 with row7_2:
-    if len(selected_paises) > 0 or len(selected_paises) <= 10:
+    if len(selected_paises) > 0 and len(selected_paises) <= 10:
         plot_x_per_anio(plot_x_per_anio_selected,plot_x_per_anio_type)
     if len(selected_paises) == 0:
         st.warning('Por favor selecciona al menos un pais')

@@ -294,9 +294,9 @@ def mapa_lat(pais, attr):
     return df_mapa
 
 def hacer_prediccion(pais, model, anio):
-    kpi = label_predicciones[model]
+    #kpi = label_predicciones[model]
     
-    with open(f'Modelos/{pais}_{kpi}.pkl', "rb") as f:
+    with open(f'Modelos/Argentina_Migracion neta.pkl', "rb") as f:
         modelo = pickle.load(f)
    
     prediccion = modelo.predict(anio)

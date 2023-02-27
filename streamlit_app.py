@@ -269,7 +269,7 @@ def mapa_lat(pais, attr):
     
     attribute = label_indicators_mapa[attr]
 
-    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == pais)]
+    df_mapa = hechos.loc[(df_data_filtered['nationality'] == pais)]
     df_mapa = df_mapa.loc[(df_data_filtered['codigo_indicador'] == attribute)]
 
     fig = px.choropleth(df_mapa, 

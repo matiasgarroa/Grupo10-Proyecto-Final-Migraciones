@@ -51,7 +51,7 @@ datos_a_excluir = ['Africa Eastern', 'Africa Western', 'World', 'Early', 'divide
 types = ["Media","Total","Mediana","Maximo","Minimo"]
 
 paises_prediccion = {'Argentina', 'Bolivia', 'Brasil', 'Chile', 'Colombia', 'Ecuador', 'Paraguay', 'Perú', 'Uruguay', 'Venezuela'}
-label_predicciones = {'Migracion Neta', 'PBI', 'PBI per capita'}
+label_predicciones = {'Migracion Neta':'Migracion neta', 'PBI': 'PIB (US$ a precios actuales)', 'PBI per capita': 'PIB per capita (US$ a precios actuales)'}
 
 
 condicion_exclusion = False
@@ -294,79 +294,15 @@ def mapa_lat(pais, attr):
     return df_mapa
 
 def hacer_prediccion(pais, model, anio):
-    if pais == 'Argentina':
-        if model == 'Migracion Neta': 
-            prediccion = modelo[0].predict(anio)
-        if model == 'PBI' :
-            prediccion = modelo[1].predict(anio)
-        if model == 'PBI per capita':
-            prediccion = modelo[2].predict(anio)
-    if pais == 'Bolivia':
-        if model == 'Migracion Neta': 
-            prediccion = modelo[3].predict(anio)
-        if model == 'PBI' :
-            prediccion = modelo[4].predict(anio)
-        if model == 'PBI per capita':
-            prediccion = modelo[5].predict(anio)
-    if pais == 'Brasil':
-        if model == 'Migracion Neta': 
-            prediccion = modelo[6].predict(anio)
-        if model == 'PBI' :
-            prediccion = modelo[7].predict(anio)
-        if model == 'PBI per capita':
-            prediccion = modelo[8].predict(anio)
-    if pais == 'Chile':
-        if model == 'Migracion Neta': 
-            prediccion = modelo[9].predict(anio)
-        if model == 'PBI' :
-            prediccion = modelo[10].predict(anio)
-        if model == 'PBI per capita':
-            prediccion = modelo[11].predict(anio)
-    if pais == 'Colombia':
-        if model == 'Migracion Neta': 
-            prediccion = modelo[12].predict(anio)
-        if model == 'PBI' :
-            prediccion = modelo[13].predict(anio)
-        if model == 'PBI per capita':
-            prediccion = modelo[14].predict(anio)
-    if pais == 'Ecuador':
-        if model == 'Migracion Neta': 
-            prediccion = modelo[15].predict(anio)
-        if model == 'PBI' :
-            prediccion = modelo[16].predict(anio)
-        if model == 'PBI per capita':
-            prediccion = modelo[17].predict(anio)
-    if pais == 'Paraguay':
-        if model == 'Migracion Neta': 
-            prediccion = modelo[18].predict(anio)
-        if model == 'PBI' :
-            prediccion = modelo[19].predict(anio)
-        if model == 'PBI per capita':
-            prediccion = modelo[20].predict(anio)
-    if pais == 'Perú':
-        if model == 'Migracion Neta': 
-            prediccion = modelo[21].predict(anio)
-        if model == 'PBI' :
-            prediccion = modelo[22].predict(anio)
-        if model == 'PBI per capita':
-            prediccion = modelo[23].predict(anio)
-    if pais == 'Uruguay':
-        if model == 'Migracion Neta': 
-            prediccion = modelo[24].predict(anio)
-        if model == 'PBI' :
-            prediccion = modelo[25].predict(anio)
-        if model == 'PBI per capita':
-            prediccion = modelo[26].predict(anio)
-    if pais == 'Venezuela':
-        if model == 'Migracion Neta': 
-            prediccion = modelo[27].predict(anio)
-        if model == 'PBI' :
-            prediccion = modelo[28].predict(anio)
-        if model == 'PBI per capita':
-            prediccion = modelo[29].predict(anio)
-
+    kpi = label_predicciones[model]
+    
+    with open(f"Modelos/{pais}_{kpi}", "rb") as f:
+        modelo = pickle.load(f)
+   
+    prediccion = modelo.predict(anio)
     resultado = 'La predicción de ' + model + ' para ' + pais + ' en el año ' + anio + ' es de ' + prediccion
     st.markdown(resultado)
+    return resultado
 
 
 ####################
@@ -554,7 +490,7 @@ row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3  = st.columns((.2, 2.3,
 with row7_1:
     st.markdown('Realiza estimaciones hacerca de Migraciones y PBI de paises latinoamericanos.')    
     pais_predict = st.selectbox ("¿En qué pais deseas realizar la predicción?", paises_prediccion, key = 'paises_prediccion')
-    modelo_predict = st.selectbox ("¿Qué prediccion deseas ejecutar?", label_predicciones, key = 'label_predicciones')
+    modelo_predict = st.selectbox ("¿Qué prediccion deseas ejecutar?", list(label_predicciones.keys()), key = 'label_predicciones')
     anio_predict = st.slider ("Escoge el año de tu predicción:", 2022, 2030)
     
 with row7_2:

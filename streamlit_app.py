@@ -478,7 +478,7 @@ row7_spacer1, row7_1, row7_spacer2, row7_2, row7_spacer3  = st.columns((.2, 2.3,
 with row7_1:
     st.markdown('Realiza estimaciones hacerca de Migraciones y PBI de paises latinoamericanos.')    
     paises_lat = st.selectbox ("¿En qué pais deseas realizar la predicción?", paises_prediccion, key = 'paises_prediccion')
-    pais_modelo = st.slider ("¿Qué prediccion deseas ejecutar?", label_predicciones, key = 'label_predicciones')
+    pais_modelo = st.selectbox ("¿Qué prediccion deseas ejecutar?", label_predicciones, key = 'label_predicciones')
     
 with row7_2:
     mapa_lat(paises_lat, pais_indicador)

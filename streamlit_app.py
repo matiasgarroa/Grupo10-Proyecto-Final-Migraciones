@@ -314,7 +314,7 @@ df_data_filtered_anio = filter_anio(hechos)
 unique_paises = get_unique_pais(df_data_filtered_anio)
 all_paises_selected = st.sidebar.selectbox('¿Quieres incluir paises o regiones en específico? Si tu respuesta es sí, cliquea en la caja debajo y selecciona los paises en el nuevo campo.', ['Incluir todos los paises y regiones','Seleccionar paises y regiones manualmente'])
 if all_paises_selected == 'Seleccionar paises y regiones manualmente':
-    selected_paises = st.sidebar.multiselect("Selecciona los paises y regiones que deseas incluir en el analysis. Puedes borrar la actual selección clickeando el boton X a la derecha", unique_paises, default = unique_paises)
+    selected_paises = st.sidebar.multiselect("Selecciona los paises y regiones que deseas incluir en el analysis. Puedes borrar la actual selección clickeando el boton X a la derecha", unique_paises, default = None)
 df_data_filtered = filter_pais(df_data_filtered_anio)   
 
 ### SEE DATA ###

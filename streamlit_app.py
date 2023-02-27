@@ -296,7 +296,7 @@ def mapa_lat(pais, attr):
 def hacer_prediccion(pais, model, anio):
     kpi = label_predicciones[model]
     
-    with open(f"Modelos/{pais}_{kpi}", "rb") as f:
+    with open(f'Modelos/{pais}_{kpi}.pkl', "rb") as f:
         modelo = pickle.load(f)
    
     prediccion = modelo.predict(anio)

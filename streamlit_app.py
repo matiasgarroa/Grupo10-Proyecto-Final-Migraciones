@@ -293,26 +293,81 @@ def mapa_lat(pais, attr):
     st.plotly_chart(fig)
     return df_mapa
 
-#def hacer_prediccion(pais, modelo, anio):
-#    if pais == 'Argentina':
-#        if modelo == 'Migracion Neta': 
-#        if modelo == 'PBI' :
-#        if modelo == 'PBI per capita':
-#    if pais == 'Bolivia':
-#    if pais == 'Brasil':
-#    if pais == 'Chile':
-#    if pais == 'Colombia':
-#    if pais == 'Ecuador':
-#    if pais == 'Paraguay':
-#    if pais == 'Perú':
-#    if pais == 'Uruguay':
-#    if pais == 'Venezuela':
-#
-#    predicciones = []
-#    for modelo in modelos:
-#        prediccion = modelo.predict(datos_entrada)
-#        predicciones.append(prediccion)
-#    return predicciones
+def hacer_prediccion(pais, model, anio):
+    if pais == 'Argentina':
+        if model == 'Migracion Neta': 
+            prediccion = modelo[0].predict(anio)
+        if model == 'PBI' :
+            prediccion = modelo[1].predict(anio)
+        if model == 'PBI per capita':
+            prediccion = modelo[2].predict(anio)
+    if pais == 'Bolivia':
+        if model == 'Migracion Neta': 
+            prediccion = modelo[3].predict(anio)
+        if model == 'PBI' :
+            prediccion = modelo[4].predict(anio)
+        if model == 'PBI per capita':
+            prediccion = modelo[5].predict(anio)
+    if pais == 'Brasil':
+        if model == 'Migracion Neta': 
+            prediccion = modelo[6].predict(anio)
+        if model == 'PBI' :
+            prediccion = modelo[7].predict(anio)
+        if model == 'PBI per capita':
+            prediccion = modelo[8].predict(anio)
+    if pais == 'Chile':
+        if model == 'Migracion Neta': 
+            prediccion = modelo[9].predict(anio)
+        if model == 'PBI' :
+            prediccion = modelo[10].predict(anio)
+        if model == 'PBI per capita':
+            prediccion = modelo[11].predict(anio)
+    if pais == 'Colombia':
+        if model == 'Migracion Neta': 
+            prediccion = modelo[12].predict(anio)
+        if model == 'PBI' :
+            prediccion = modelo[13].predict(anio)
+        if model == 'PBI per capita':
+            prediccion = modelo[14].predict(anio)
+    if pais == 'Ecuador':
+        if model == 'Migracion Neta': 
+            prediccion = modelo[15].predict(anio)
+        if model == 'PBI' :
+            prediccion = modelo[16].predict(anio)
+        if model == 'PBI per capita':
+            prediccion = modelo[17].predict(anio)
+    if pais == 'Paraguay':
+        if model == 'Migracion Neta': 
+            prediccion = modelo[18].predict(anio)
+        if model == 'PBI' :
+            prediccion = modelo[19].predict(anio)
+        if model == 'PBI per capita':
+            prediccion = modelo[20].predict(anio)
+    if pais == 'Perú':
+        if model == 'Migracion Neta': 
+            prediccion = modelo[21].predict(anio)
+        if model == 'PBI' :
+            prediccion = modelo[22].predict(anio)
+        if model == 'PBI per capita':
+            prediccion = modelo[23].predict(anio)
+    if pais == 'Uruguay':
+        if model == 'Migracion Neta': 
+            prediccion = modelo[24].predict(anio)
+        if model == 'PBI' :
+            prediccion = modelo[25].predict(anio)
+        if model == 'PBI per capita':
+            prediccion = modelo[26].predict(anio)
+    if pais == 'Venezuela':
+        if model == 'Migracion Neta': 
+            prediccion = modelo[27].predict(anio)
+        if model == 'PBI' :
+            prediccion = modelo[28].predict(anio)
+        if model == 'PBI per capita':
+            prediccion = modelo[29].predict(anio)
+
+    resultado = 'La predicción de ' + model + ' para ' + pais + ' en el año ' + anio + ' es de ' + prediccion
+    st.markdown(resultado)
+
 
 ####################
 ### INTRODUCCIÓN ###
@@ -503,4 +558,4 @@ with row7_1:
     anio_predict = st.slider ("Escoge el año de tu predicción:", 2022, 2030)
     
 with row7_2:
-    st.write(modelos[0])
+    hacer_prediccion(pais_predict, modelo_predict, anio_predict)

@@ -265,7 +265,7 @@ def build_resultado_return_string(return_indicador_value_pais,min_max,attribute)
 
 def mapa_lat(pais, attr):
     
-    attribute = label_indicators_filtrados_dict[attr]
+    attribute = label_indicators_mapa[attr]
 
     df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == pais)]
     df_mapa = df_mapa.loc[(df_data_filtered['codigo_indicador'] == attribute)]

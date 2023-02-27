@@ -417,7 +417,10 @@ with row5_2:
         plot_x_per_pais(plot_x_per_pais_selected, plot_x_per_pais_type)
     else:
         st.warning('Por favor selecciona al menos un pais')
-st.write(type(selected_paises))
+
+if selected_paises:
+    st.write(type(selected_paises))
+
 ### ANIO ###
 row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
 with row6_1:

@@ -7,6 +7,7 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 import plotly.express as px
 import pickle
+from sklearn import LinearRegression
 
 st.set_page_config(layout="wide")
 

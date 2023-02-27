@@ -4,3 +4,4 @@ pandas-gbq
 matplotlib
 seaborn
 plotly
+sklearn

@@ -452,5 +452,7 @@ with row7_1:
 with row7_2:
     if len(selected_paises) > 0 or len(selected_paises) <= 10:
         mapa_lat(paises_lat, pais_indicador)
-    else:
+    if len(selected_paises) == 0:
         st.warning('Por favor selecciona al menos un pais')
+    else:
+        st.warning('Selecciona maximo 10 paises')

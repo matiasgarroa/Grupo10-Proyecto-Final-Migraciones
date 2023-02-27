@@ -263,8 +263,13 @@ def build_resultado_return_string(return_indicador_value_pais,min_max,attribute)
     st.markdown(string1)
     return df_find_result
 
-def mapa_lat(df_mapa):
+def mapa_lat(pais, attr):
     
+    attribute = label_indicators_mapa[attr]
+
+    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == pais)]
+    df_mapa = df_mapa.loc[(df_data_filtered['codigo_indicador'] == attribute)]
+
     fig = px.choropleth(df_mapa, 
                         locations='codigo_pais', 
                         color='valor',
@@ -413,6 +418,9 @@ with row5_2:
     else:
         st.warning('Por favor selecciona al menos un pais')
 
+if selected_paises:
+    st.write(type(selected_paises))
+
 ### ANIO ###
 row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
 with row6_1:
@@ -423,7 +431,7 @@ with row7_1:
     plot_x_per_anio_selected = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_filtrados_dict.keys()), key = 'attribute_anio')
     plot_x_per_anio_type = st.selectbox ("¿Qué medida deseas analizar?", types, key = 'measure_anio')
 with row7_2:
-    if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
+    if len(selected_paises) > 0 or len(selected_paises) :
         plot_x_per_anio(plot_x_per_anio_selected,plot_x_per_anio_type)
     else:
         st.warning('Por favor selecciona al menos un pais')
@@ -440,11 +448,9 @@ with row7_1:
     paises_lat = st.selectbox ("¿Qué pais deseas visualizar?", label_paises, key = 'pais_mapa')
     pais_indicador = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_mapa.keys()), key = 'codigo_indicador')
     st.write(pais_indicador)
-    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == paises_lat)]
-    df_mapa = df_mapa.loc[(df_data_filtered['codigo_indicador'] == pais_indicador)]
+    
 with row7_2:
-    st.write(df_mapa)
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
-        mapa_lat(df_mapa)
+        mapa_lat(paises_lat, pais_indicador)
     else:
         st.warning('Por favor selecciona al menos un pais')

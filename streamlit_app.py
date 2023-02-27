@@ -7,7 +7,6 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 import plotly.express as px
 import pickle
-import sklearn 
 
 st.set_page_config(layout="wide")
 

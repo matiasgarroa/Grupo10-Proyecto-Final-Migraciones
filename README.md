@@ -49,3 +49,5 @@ garantizamos que el data Ware House esté actualizado, automatizando el proceso 
 3. Crecimiento del PBI per capita.
 4. Remesas.
 5. Idoneidad de los programas de seguro social
+##### flujo migratorios dashboards 
+![](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/blob/main/Semana%203/flow%20map.jpeg)

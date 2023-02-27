@@ -48,6 +48,8 @@ for palabra in datos_a_excluir:
 mascara = ~condicion_exclusion
 hechos = hechos.loc[mascara]
 
+selected_paises = [] 
+
 ### Helper Methods ###
 def get_unique_anios(df_data):
     #devuelve los valores unicos de hechos['anio'] en forma de lista

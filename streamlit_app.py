@@ -503,4 +503,4 @@ with row7_1:
     anio_predict = st.slider ("Escoge el año de tu predicción:", 2022, 2030)
     
 with row7_2:
-    st.write(modelos)
+    st.write(modelos[0])

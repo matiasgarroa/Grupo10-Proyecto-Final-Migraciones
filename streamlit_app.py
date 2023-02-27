@@ -479,7 +479,7 @@ with row7_1:
     st.markdown('Realiza estimaciones hacerca de Migraciones y PBI de paises latinoamericanos.')    
     paises_lat = st.selectbox ("¿En qué pais deseas realizar la predicción?", paises_prediccion, key = 'paises_prediccion')
     pais_modelo = st.selectbox ("¿Qué prediccion deseas ejecutar?", label_predicciones, key = 'label_predicciones')
-    p = st.slider ("¿Qué prediccion deseas ejecutar?", 2022, 2030, 1)
+    p = st.slider ("¿Qué prediccion deseas ejecutar?", 2022, 2030)
     
 with row7_2:
     mapa_lat(paises_lat, pais_indicador)

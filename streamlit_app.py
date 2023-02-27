@@ -263,8 +263,13 @@ def build_resultado_return_string(return_indicador_value_pais,min_max,attribute)
     st.markdown(string1)
     return df_find_result
 
-def mapa_lat(df_mapa):
+def mapa_lat(pais, attr):
     
+    attribute = label_indicators_filtrados_dict[attr]
+
+    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == pais)]
+    df_mapa = df_mapa.loc[(df_data_filtered['codigo_indicador'] == attribute)]
+
     fig = px.choropleth(df_mapa, 
                         locations='codigo_pais', 
                         color='valor',
@@ -440,11 +445,9 @@ with row7_1:
     paises_lat = st.selectbox ("¿Qué pais deseas visualizar?", label_paises, key = 'pais_mapa')
     pais_indicador = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_mapa.keys()), key = 'codigo_indicador')
     st.write(pais_indicador)
-    df_mapa = df_data_filtered.loc[(df_data_filtered['nationality'] == paises_lat)]
-    df_mapa = df_mapa.loc[(df_data_filtered['codigo_indicador'] == pais_indicador)]
+    
 with row7_2:
-    st.write(df_mapa)
     if all_paises_selected != 'Seleccionar paises y regiones manualmente' or selected_paises:
-        mapa_lat(df_mapa)
+        mapa_lat(paises_lat, pais_indicador)
     else:
         st.warning('Por favor selecciona al menos un pais')

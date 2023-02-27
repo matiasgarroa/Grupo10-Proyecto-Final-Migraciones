@@ -453,7 +453,6 @@ with row7_1:
     st.markdown('Consulta cuales son los paises latinoamericanos mas elegidos a la hora de migrar.')    
     paises_lat = st.selectbox ("¿Qué pais deseas visualizar?", label_paises, key = 'pais_mapa')
     pais_indicador = st.selectbox ("¿Qué atributo deseas analizar?", list(label_indicators_mapa.keys()), key = 'codigo_indicador')
-    st.write(pais_indicador)
     
 with row7_2:
     mapa_lat(paises_lat, pais_indicador)

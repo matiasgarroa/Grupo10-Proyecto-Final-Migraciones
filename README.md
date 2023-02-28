@@ -54,4 +54,4 @@ garantizamos que el data Ware House esté actualizado, automatizando el proceso 
 ![](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/blob/main/Semana%203/dashboard%20kpi%20(PIB%2C%20MIGRACION%20NETA).JPG)
 
 ### MACHINE LEARNING:
-
+![](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/blob/main/Semana%202/ML.jpeg)

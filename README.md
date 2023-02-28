@@ -3,7 +3,8 @@
 El objetivo general del proyecto es proporcionar una herramienta útil y accesible,
 para ayudar a los emigrantes de America del Sur, y de igual manera a las personas que
 desean emigrar al continente, a tomar decisiones informadas sobre su destino de
-emigración. La herramienta se enfocará en datos objetivos y personalizados para
+emigración. 
+La herramienta se enfocará en datos objetivos y personalizados para
 cada usuario, y sería un recurso valioso para aquellos que buscan un futuro mejor y
 más estable.
 
@@ -39,7 +40,7 @@ Realizamos una limpieza y transformamos los datos para asegurarnos de que estén
 ### CARGA DE DATOS
 Realizamos la carga de datos con Python y Pandas.
 ### MANTENIMIENTO Y ACTUALIZACIÓN:
-garantizamos que el data Ware House esté actualizado, automatizando el proceso con Apache Airflow, generando con Python el proceso de extracción y transformación. Con la finalidad de tener la información disponible para respaldar los procesos de toma de decisiones.
+Garantizamos que el data Ware House esté actualizado, automatizando el proceso con Apache Airflow, generando con Python el proceso de extracción y transformación. Con la finalidad de tener la información disponible para respaldar los procesos de toma de decisiones.
 
 ### DATA ANALYTICS.
 ### KPIs:

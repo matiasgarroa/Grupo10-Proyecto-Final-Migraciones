@@ -17,8 +17,7 @@ montarlo en un servicio de cloud (google cloud).
 3. Creación de Dashboards, KPIs y métricas que enseñen los principales
 resultados sobre los factores que influyen en las migraciones.
 4. Desarrollar un modelo de machine learning que permita a los usuarios
-identificar sus prioridades y recibir recomendaciones personalizadas sobre el
-destino de emigración más adecuado para ellos.
+recibir recomendaciones personalizadas sobre el destino de emigración más adecuado para ellos.
 5. Producir un repositorio en la plataforma Github, disponiendo el proyecto a la
 comunidad, para que esta expongan mejoras para futura versiones del
 proyecto
@@ -53,3 +52,6 @@ garantizamos que el data Ware House esté actualizado, automatizando el proceso 
 ![](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/blob/main/Semana%203/flow%20map.jpeg)
 ##### Visualización de los kpis 1,2 y 3 
 ![](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/blob/main/Semana%203/dashboard%20kpi%20(PIB%2C%20MIGRACION%20NETA).JPG)
+
+### MACHINE LEARNING:
+

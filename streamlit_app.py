@@ -302,7 +302,8 @@ def hacer_prediccion(pais, model, anio):
 
     dato_anio = np.array([2026]).reshape(1, -1)
     prediccion = modelo.predict(dato_anio)
-    resultado = 'La predicción de ' + model + ' para ' + pais + ' en el año ' + anio + ' es de ' + str(prediccion[0])
+    prediccion = str(prediccion[0][0])
+    resultado = 'La predicción de ' + model + ' para ' + pais + ' en el año ' + anio + ' es de ' + prediccion
     st.markdown(resultado)
     return resultado
 

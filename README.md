@@ -1,8 +1,8 @@
 # FLUJOS MIGRATORIOS PROYECTO END TO END</b>
 ### OBJETIVO GENERAL
-El objetivo general del proyecto es proporcionar una herramienta útil y accesible
-para ayudar a los emigrantes argentinos, y de igual manera a las personas que
-desean emigrar a Argentina. A tomar decisiones informadas sobre su destino de
+El objetivo general del proyecto es proporcionar una herramienta útil y accesible,
+para ayudar a los emigrantes de America del Sur, y de igual manera a las personas que
+desean emigrar al continente, a tomar decisiones informadas sobre su destino de
 emigración. La herramienta se enfocará en datos objetivos y personalizados para
 cada usuario, y sería un recurso valioso para aquellos que buscan un futuro mejor y
 más estable.

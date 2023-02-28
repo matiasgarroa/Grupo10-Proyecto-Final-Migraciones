@@ -18,11 +18,7 @@
 
 * [Dashboard](#Dashboard)
 
-* [Principales tecnologías utilizadas](#Principales-tecnologías-utilizadas)
 
-* [Información del proyecto](#Información-del-proyecto)
-
-* [Conclusiones](#Conclusiones)
 
 # Introducción
 Para nuestro análisis de los flujos migratorios en Sudamérica, en la primera semana nos planteamos unos objetivos generales y específicos que nos sirven de guía en el desarrollo de este proyecto. Es importante tenerlos presentes en todo momento con el fin de concentrar esfuerzos y lograr el cumplimiento de dichos objetivos.

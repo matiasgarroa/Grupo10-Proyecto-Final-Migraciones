@@ -7,6 +7,7 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 import plotly.express as px
 import pickle
+import numpy as np
 
 st.set_page_config(layout="wide")
 
@@ -298,8 +299,9 @@ def hacer_prediccion(pais, model, anio):
     
     with open(f'Modelos/{pais}_{kpi}.pkl', "rb") as f:
         modelo = pickle.load(f)
-   
-    prediccion = modelo.predict(anio)
+
+    dato_anio = np.array([2026]).reshape(1, -1)
+    prediccion = modelo.predict(dato_anio)
     resultado = 'La predicción de ' + model + ' para ' + pais + ' en el año ' + anio + ' es de ' + prediccion
     st.markdown(resultado)
     return resultado

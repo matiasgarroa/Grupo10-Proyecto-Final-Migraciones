@@ -49,7 +49,7 @@ Como objetivos en esta instancia nos planteamos:
 # Flujo de datos
 
 <p align="center">
-   <img width="800" height="350" src="Imagenes/arquitectura GCP.png">
+   <img width="800" height="450" src="Imagenes/arquitectura GCP.png">
    </p>
 El flujo de datos implementado para este proyecto es el siguiente:
 

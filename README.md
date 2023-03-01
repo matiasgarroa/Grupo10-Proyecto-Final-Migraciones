@@ -22,8 +22,8 @@
 
 *Proyecto desarrollado en Henry por:*
 
-<center>
-   
+<table style="margin: 0 auto;">
+
 | Miembro del equipo | GitHub |
 |-----------|-----------|
 | Juan Garcia    | @juangarciare   |
@@ -32,8 +32,7 @@
 | Matias Garro          |@matiasgarroa           |
 | Camilo Pedreros   | @CamiiloP14   |
 
-
-</center>
+</table>
 
 # Introducción
  

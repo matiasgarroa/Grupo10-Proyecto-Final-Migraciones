@@ -315,7 +315,7 @@ def hacer_prediccion(pais, model, anio):
 
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
-    st.title('Grupo10 - Analizador de Migraciones')
+    st.title('Grupo10 - Migraciones')
 with row0_2:
     st.text("")
     st.subheader('Streamlit App')
@@ -493,11 +493,11 @@ with row7_1:
     pais_predict = st.selectbox ("¿En qué pais deseas realizar la predicción?", paises_prediccion, key = 'paises_prediccion')
     modelo_predict = st.selectbox ("¿Qué prediccion deseas ejecutar?", list(label_predicciones.keys()), key = 'label_predicciones')
     anio_predict = st.slider ("Escoge el año de tu predicción:", 2022, 2030)
+    st.text('')
     
 with row7_2:
     hacer_prediccion(pais_predict, modelo_predict, anio_predict)
 
-st.write('')
 
 col1, col2 = st.columns([1, 3])
 

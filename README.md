@@ -125,7 +125,8 @@ Para concluir las últimas fases del proyecto iniciamos con la construcción de 
 
 [![Streamlit](https://drive.google.com/thumbnail?id=17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e)](https://drive.google.com/file/d/17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e/preview)]
 
-<iframe width="560" height="315" src="https://drive.google.com/file/d/17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e/preview" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://drive.google.com/file/d/17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e/preview" frameborder="0" allowfullscreen>
+</iframe>
 
 # Informes 
 En los siguientes links puedes encontrar información más detallada sobre el trabajo hecho durante el tiempo de duración del proyecto.

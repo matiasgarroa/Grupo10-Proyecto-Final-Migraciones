@@ -497,7 +497,7 @@ with row7_1:
 with row7_2:
     hacer_prediccion(pais_predict, modelo_predict, anio_predict)
 
-#st.html('<iframe title="migrations_dashboard" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=e05b2f6e-4da4-42ae-95c0-a8beb3aa317f&autoAuth=true&ctid=c6e20e43-cfcd-489e-a266-418f56df124c" frameborder="0" allowFullScreen="true"></iframe>')
+st.write('')
 
 col1, col2 = st.columns([1, 3])
 
@@ -507,6 +507,6 @@ with col1:
 
 # Muestra el título en la columna 2
 with col2:
-    st.markdown("Move Trends")
+    st.subheader("Move Trends")
 
 st.components.v1.html('<iframe width="800" height="600" src="https://app.powerbi.com/reportEmbed?reportId=e05b2f6e-4da4-42ae-95c0-a8beb3aa317f&autoAuth=true&ctid=c6e20e43-cfcd-489e-a266-418f56df124c" frameborder="0" allowFullScreen="true"></iframe>', height=700)

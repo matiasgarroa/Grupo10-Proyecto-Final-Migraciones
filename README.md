@@ -122,8 +122,8 @@ Para continuar con la fase siguiente del proyecto iniciamos con un proceso de ET
 Para concluir las últimas fases del proyecto iniciamos con la construcción de dashboards en los cuales sustentamos nuestro objetivo y los KPI’s planteados. Además se  realizó modelos  de predicción los cuales aportan predicciones útiles sobre la economía de un país.    Finalmente se hace la crea una app wb en Streamlit en la cual se reune toda la infrormación construida a lo largo del proyecto.
 
 ## Streamlit
-<p align="center">
-[![Streamlit](https://drive.google.com/thumbnail?id=17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e)](https://drive.google.com/file/d/17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e/preview)]
+
+[Streamlit](https://drive.google.com/thumbnail?id=17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e)](https://drive.google.com/file/d/17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e/preview)
 
 <p >
 # Informes 

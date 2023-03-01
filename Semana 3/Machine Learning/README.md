@@ -1,7 +1,7 @@
 <h1 align="center"> Modelos de Machine Learning  </h1>
 
 <p align="center">
-   <img width="700" height="400" src="Imagenes/portada ML.png">
+   <img width="700" height="400" src="https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/blob/main/Semana%203/Machine%20Learning/Imagenes/portada%20Ml.png">
    </p>
 
 

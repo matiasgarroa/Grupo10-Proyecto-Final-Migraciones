@@ -31,7 +31,7 @@
 | Gian Rivas | @GianArthas   |
 | Matias Garro          |@matiasgarroa           |
 | Camilo Pedreros   | @CamiiloP14   |
-|           |           |
+
 
 </center>
 

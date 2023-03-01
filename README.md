@@ -1,7 +1,7 @@
 <h1 align="center"> Proyecto grupal: Move Trends  </h1>
 
 <p align="center">
-   <img width="700" height="400" src="Img/portada3.png">
+   <img width="700" height="400" src="img/portada3.png">
    </p>
 
 
@@ -68,7 +68,7 @@ Para afrontar este desafío nos hemos planteado los siguientes objetivos.
 ## Stack tecnológico
 
 <p align="center">
-   <img width="700" height="400" src="Imagenes/stack2.png">
+   <img width="700" height="400" src="img/stack2.png">
    </p>
 
 ## Metodología de trabajo
@@ -102,7 +102,7 @@ Para iniciar este proyecto se debía tener claro el contexto de los flujos migra
 ## Planificación de actividadades
 
 <p align="center">
-   <img width="800" height="350" src="Imagenes/diagrama de Gantt.png">
+   <img width="800" height="350" src="img/diagrama de Gantt.png">
    </p>
 
 **Semana 2**
@@ -115,7 +115,7 @@ Para continuar con la fase siguiente del proyecto iniciamos con un proceso de ET
 ## Diagrama de flujo de trabajo
 
 <p align="center">
-   <img width="800" height="350" src="Imagenes/arquitectura GCP.png">
+   <img width="800" height="350" src="img/arquitectura GCP.png">
    </p>
 
 **Semana 3.**
@@ -124,7 +124,7 @@ Para concluir las últimas fases del proyecto iniciamos con la construcción de 
 ## Streamlit
 
 <p align="center">
-   <img width="800" height="450" src="Imagenes/app.png">
+   <img width="800" height="450" src="img/app.png">
    </p>
 
 # Informes 

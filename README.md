@@ -22,7 +22,7 @@
 
 *Proyecto desarrollado en Henry por:*
 
-<table style="margin: 0 auto;">
+<div align="center">
 
 | Miembro del equipo | GitHub |
 |:-----------:|:-----------:|
@@ -32,7 +32,7 @@
 | Matias Garro          |@matiasgarroa           |
 | Camilo Pedreros   | @CamiiloP14   |
 
-</table>
+</div>
 
 # Introducción
  

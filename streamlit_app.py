@@ -448,11 +448,8 @@ with row5_2:
         plot_x_per_pais(plot_x_per_pais_selected, plot_x_per_pais_type)
     if len(selected_paises) > 10 or all_paises_selected == 'Incluir todos los paises y regiones':
         st.warning('Selecciona maximo 10 paises')
-    else:
+    if len(selected_paises) == 0:
         st.warning('Por favor selecciona al menos un pais')
-
-if selected_paises:
-    st.write(type(selected_paises))
 
 ### ANIO ###
 row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
@@ -468,7 +465,7 @@ with row7_2:
         plot_x_per_anio(plot_x_per_anio_selected,plot_x_per_anio_type)
     if len(selected_paises) > 10 or all_paises_selected == 'Incluir todos los paises y regiones':
         st.warning('Selecciona maximo 10 paises')
-    else:
+    if len(selected_paises) == 0:
         st.warning('Por favor selecciona al menos un pais')
 
 #########
@@ -511,4 +508,5 @@ with col1:
 # Muestra el título en la columna 2
 with col2:
     st.title("Move Trends")
+
 st.components.v1.html('<iframe width="800" height="600" src="https://app.powerbi.com/reportEmbed?reportId=e05b2f6e-4da4-42ae-95c0-a8beb3aa317f&autoAuth=true&ctid=c6e20e43-cfcd-489e-a266-418f56df124c" frameborder="0" allowFullScreen="true"></iframe>', height=700)

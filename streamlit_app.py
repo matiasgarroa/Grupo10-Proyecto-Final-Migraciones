@@ -503,10 +503,10 @@ col1, col2 = st.columns([1, 3])
 
 # Muestra el logo en la columna 1
 with col1:
-    st.image("img/Move_trends.png", width=100)
+    st.image("img/Move_trends.png", width=75)
 
 # Muestra el título en la columna 2
 with col2:
-    st.title("Move Trends")
+    st.subtitle("Move Trends")
 
 st.components.v1.html('<iframe width="800" height="600" src="https://app.powerbi.com/reportEmbed?reportId=e05b2f6e-4da4-42ae-95c0-a8beb3aa317f&autoAuth=true&ctid=c6e20e43-cfcd-489e-a266-418f56df124c" frameborder="0" allowFullScreen="true"></iframe>', height=700)

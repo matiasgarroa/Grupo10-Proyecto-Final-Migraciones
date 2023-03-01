@@ -127,6 +127,8 @@ Para concluir las últimas fases del proyecto iniciamos con la construcción de 
    <img width="800" height="450" src="img/app.png">
    </p>
 
+[![Streamlit](https://drive.google.com/file/d/17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e/view?usp=share_link)]
+
 # Informes 
 En los siguientes links puedes encontrar información más detallada sobre el trabajo hecho durante el tiempo de duración del proyecto.
 * [Data Engineering](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/tree/main/Semana%202)
@@ -134,7 +136,7 @@ En los siguientes links puedes encontrar información más detallada sobre el tr
 * [Machine Learning Models](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/tree/main/Semana%203/Machine%20Learning)
 
 # Producto final 
-omo producto final, construímos una aplicación web a la que tanto los Product Owner de la empresa con las personas del común, pueden ingresar para ver información actualizada sobre flujos migratorios de sudamérica. Para los migrantes de sudamérica tenemos dos dashboard generales que explica la situación actual de las migraciones de los principales países de esta área. Por otra parte se crea un mapa interactivo en el cual, las persoans podran seleccionar su país de origen y país de llegada y obtendras información con respecto a las migraciones asociadas a dichos países. Finalmente se disponibiliza una app en Streamlit para que las personas puedan interactuar y conocer más acerca de los patrones asociados a los flujos migratorios.
+Como producto final, construímos una aplicación web a la que tanto los Product Owner de la empresa con las personas del común, pueden ingresar para ver información actualizada sobre flujos migratorios de sudamérica. Para los migrantes de sudamérica tenemos dos dashboard generales que explica la situación actual de las migraciones de los principales países de esta área. Por otra parte se crea un mapa interactivo en el cual, las persoans podran seleccionar su país de origen y país de llegada y obtendras información con respecto a las migraciones asociadas a dichos países. Finalmente se disponibiliza una app en Streamlit para que las personas puedan interactuar y conocer más acerca de los patrones asociados a los flujos migratorios.
 
 # Disclaimer
 De parte del equipo de Henry se aclara y remarca que el fin de los proyectos propuestos es exclusivamente pedagógico, con el objetivo de realizar simular un entorno laboral, en el cual se trabajan diversas temáticas ajustadas a la realidad. No reflejan necesariamente la filosofía y valores de la organización. Además, Henry no alienta ni tampoco recomienda a los alumnos y/o cualquier persona leyendo los repositorios (y entregas de proyectos) que tomen acciones con base a los datos que pudieran o no haber recabado. Toda la información expuesta y resultados obtenidos en los proyectos nunca deben ser tomados en cuenta para la toma real de decisiones (especialmente en la temática de finanzas, salud, política, etc.).

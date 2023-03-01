@@ -291,7 +291,7 @@ def mapa_lat(pais, attr):
                         color='valor',
                         title='Unión de ' + df_mapa['nationality'].iloc[0] + ' con otros países')
 
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
     return df_mapa
 
 def hacer_prediccion(pais, model, anio):

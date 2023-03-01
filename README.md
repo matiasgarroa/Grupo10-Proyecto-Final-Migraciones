@@ -124,10 +124,10 @@ Para concluir las últimas fases del proyecto iniciamos con la construcción de 
 ## Streamlit
 
 <p align="center">
-   <img width="800" height="450" src="img/app.png">
+   <[![Streamlit](https://drive.google.com/thumbnail?id=17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e)](https://drive.google.com/file/d/ID_DEL_VIDEO/preview) width="800" height="450">
    </p>
 
-[![Streamlit](https://drive.google.com/thumbnail?id=17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e)](https://drive.google.com/file/d/ID_DEL_VIDEO/preview)
+
 
 # Informes 
 En los siguientes links puedes encontrar información más detallada sobre el trabajo hecho durante el tiempo de duración del proyecto.

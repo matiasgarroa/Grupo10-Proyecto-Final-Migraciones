@@ -124,7 +124,7 @@ Para concluir las últimas fases del proyecto iniciamos con la construcción de 
 ## Streamlit
 
 
-<[![Streamlit](https://drive.google.com/thumbnail?id=17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e)](https://drive.google.com/file/d/ID_DEL_VIDEO/preview) width="800" 
+[![Streamlit](https://drive.google.com/thumbnail?id=17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e)](https://drive.google.com/file/d/ID_DEL_VIDEO/preview) width="800" 
 
 <center>
   <iframe src="https://drive.google.com/file/d/17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e/preview" width="800" height="450"></iframe>

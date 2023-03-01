@@ -123,7 +123,7 @@ Para concluir las últimas fases del proyecto iniciamos con la construcción de 
 
 ## Streamlit
 
-[![Streamlit](https://drive.google.com/thumbnail?id=17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e)](https://drive.google.com/file/d/ID_DEL_VIDEO/preview)]
+[![Streamlit](https://drive.google.com/thumbnail?id=17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e)](https://drive.google.com/file/d/17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e/preview)]
 
 
 # Informes 

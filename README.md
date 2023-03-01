@@ -125,7 +125,7 @@ Para concluir las últimas fases del proyecto iniciamos con la construcción de 
 
 [![Streamlit](https://drive.google.com/thumbnail?id=17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e)](https://drive.google.com/file/d/17uvSdgI9mZIALO59nOxXsG2PoJmKpD9e/preview)]
 
-<p >
+
 # Informes 
 En los siguientes links puedes encontrar información más detallada sobre el trabajo hecho durante el tiempo de duración del proyecto.
 * [Data Engineering](https://github.com/matiasgarroa/Grupo10-Proyecto-Final-Migraciones/tree/main/Semana%202)

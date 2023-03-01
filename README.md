@@ -23,7 +23,7 @@
 *Proyecto desarrollado en Henry por:*
 
 <center>
-
+   
 | Miembro del equipo | GitHub |
 |-----------|-----------|
 | Juan Garcia    | @juangarciare   |
@@ -32,6 +32,7 @@
 | Matias Garro          |@matiasgarroa           |
 | Camilo Pedreros   | @CamiiloP14   |
 |           |           |
+
 </center>
 
 # Introducción
@@ -115,7 +116,7 @@ Para continuar con la fase siguiente del proyecto iniciamos con un proceso de ET
 ## Diagrama de flujo de trabajo
 
 <p align="center">
-   <img width="800" height="350" src="img/arquitectura GCP.png">
+   <img width="800" height="450" src="img/arquitectura GCP.png">
    </p>
 
 **Semana 3.**

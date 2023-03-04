@@ -32,7 +32,7 @@
 | Camilo Ardila          |  [@kmilo140](https://github.com/kmilo140)         |:colombia:
 | Gian Rivas | [@GianArthas](https://github.com/GianArthas)   |:peru:
 | Matias Garro          |[@matiasgarroa](https://github.com/matiasgarroa)           |	:argentina:
-| Camilo Pedreros   | [@CamiiloP14](https://github.com/CamiiloP14)   |:colombia:
+| Camilo Pedreros   | [@CamiiloP14](https://github.com/CamiiloP14)   |:🇨🇴:
 
 </div>
 

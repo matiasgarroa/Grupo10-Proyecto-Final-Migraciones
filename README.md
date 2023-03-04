@@ -28,8 +28,7 @@
 
 | Miembro del equipo | GitHub |Pais
 |:-----------:|:-----------:|:-----------:|
-| Juan Garcia    | [@juangarciare](https://github.com/juangarciare)   |	align="center">
-   <img width="100" height="50" src="img/portada3.png">
+| Juan Garcia    | [@juangarciare](https://github.com/juangarciare)   |	<img width="50" height="20" src="img/portada3.png">
 | Camilo Ardila          |  [@kmilo140](https://github.com/kmilo140)         |:colombia:
 | Gian Rivas | [@GianArthas](https://github.com/GianArthas)   |:peru:
 | Matias Garro          |[@matiasgarroa](https://github.com/matiasgarroa)           |	:argentina:

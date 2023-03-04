@@ -28,11 +28,11 @@
 
 | Miembro del equipo | GitHub |Pais
 |:-----------:|:-----------:|:-----------:|
-| Juan Garcia    | [@juangarciare](https://github.com/juangarciare)   |
-| Camilo Ardila          |  [@kmilo140](https://github.com/kmilo140)         |
-| Gian Rivas | [@GianArthas](https://github.com/GianArthas)   |
-| Matias Garro          |[@matiasgarroa](https://github.com/matiasgarroa)           |
-| Camilo Pedreros   | [@CamiiloP14](https://github.com/CamiiloP14)   |
+| Juan Garcia    | [@juangarciare](https://github.com/juangarciare)   |	:argentina:
+| Camilo Ardila          |  [@kmilo140](https://github.com/kmilo140)         |:colombia:
+| Gian Rivas | [@GianArthas](https://github.com/GianArthas)   |:peru:
+| Matias Garro          |[@matiasgarroa](https://github.com/matiasgarroa)           |	:argentina:
+| Camilo Pedreros   | [@CamiiloP14](https://github.com/CamiiloP14)   |:colombia:
 
 </div>
 

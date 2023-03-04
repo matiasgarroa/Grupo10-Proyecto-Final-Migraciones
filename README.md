@@ -26,8 +26,8 @@
 
 <div align="center">
 
-| Miembro del equipo | GitHub |
-|:-----------:|:-----------:|
+| Miembro del equipo | GitHub |Pais
+|:-----------:|:-----------:|:-----------:|
 | Juan Garcia    | [@juangarciare](https://github.com/juangarciare)   |
 | Camilo Ardila          |  [@kmilo140](https://github.com/kmilo140)         |
 | Gian Rivas | [@GianArthas](https://github.com/GianArthas)   |

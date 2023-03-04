@@ -30,7 +30,7 @@
 |:-----------:|:-----------:|:-----------:|
 | Juan Garcia    | [@juangarciare](https://github.com/juangarciare)   |	<img width="40" height="20" src="img/icono-plano-del-cuadrado-vector-de-la-bandera-argentina-102753340.png">
 | Camilo Ardila          |  [@kmilo140](https://github.com/kmilo140)         |<img width="40" height="20" src="img/Flag_of_Colombia.png">
-| Gian Rivas | [@GianArthas](https://github.com/GianArthas)   |<img width="40" height="30" src="img/Peru_bandera.png">
+| Gian Rivas | [@GianArthas](https://github.com/GianArthas)   |<img width="35" height="25" src="img/Peru_bandera.png">
 | Matias Garro          |[@matiasgarroa](https://github.com/matiasgarroa)           |	<img width="40" height="20" src="img/icono-plano-del-cuadrado-vector-de-la-bandera-argentina-102753340.png">
 | Camilo Pedreros   | [@CamiiloP14](https://github.com/CamiiloP14)   |<img width="40" height="20" src="img/Flag_of_Colombia.png">
 

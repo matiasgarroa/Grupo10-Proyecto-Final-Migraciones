@@ -37,7 +37,7 @@ for archivo in ['Modelos/Argentina_Migracion neta.pkl','Modelos/Argentina_PIB (U
 sql_hechos = """
 SELECT * FROM `pi-soy-henry.migrations.hechos`
 """
-hechos = read_dataframe(sql_hechos)
+hechos = read_gbq(sql_hechos)
 hechos = hechos.sort_values('anio' ,ascending=True)
 
 label_indicators_dict = {'Migración Neta':'SM.POP.NETM','PIB (UMN a precios actuales)':'NY.GDP.MKTP.CN','PIB per cápita (UMN actual)':'NY.GDP.PCAP.CN','Idoneidad de los programas de trabajo y protección social (porcentaje del bienestar total de los hogares beneficiarios)':'per_allsp.adq_pop_tot','Idoneidad de los programas de seguro social (porcentaje del bienestar total de los hogares beneficiarios)':'per_si_allsi.adq_pop_tot','Remesas de trabajadores y compensación de empleados, pagadas (US$ a precios actuales)':'BM.TRF.PWKR.CD.DT','Crecimiento del PIB per cápita (porcentaje anual)':'NY.GDP.PCAP.KD.ZG','Crecimiento del PIB (porcentaje anual)':'NY.GDP.MKTP.KD.ZG','Consumo de sal iodada (porcentaje de hogares) ': 'SN.ITK.SALT.ZS','Entradas de población extranjera por nacionalidad ':'B11','Salidas de población extranjera por nacionalidad ':'B12','Stock de población nacida en el extranjero por país de nacimiento':'B14','Stock de población extranjera por nacionalidad':'B15'}

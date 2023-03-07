@@ -38,12 +38,12 @@
 
 # Introducción
  
- ## contexto 
- Desde medidados del siglo pasado, los flujos migratorios en Suramérica han experimentado un importante aumento debido a una variedad de razones, como la inestabilidad económica, la violencia, el cambio climático y la búsqueda de mejores oportunidades. Este fenómeno ha generado una serie de desafíos y oportunidades para las sociedades de acogida y para los propios migrantes.
+## Contexto 
+Desde medidados del siglo pasado, los flujos migratorios en Suramérica han experimentado un importante aumento debido a una variedad de razones, como la inestabilidad económica, la violencia, el cambio climático y la búsqueda de mejores oportunidades. Este fenómeno ha generado una serie de desafíos y oportunidades para las sociedades de acogida y para los propios migrantes.
 
 ## Rol a desarrollar
 
-Una ONG internacional se ha contactado con nuestra empresa de consultoria **Movie Trends**, con el fin de estudiar los flujos migratorios de suramérica y mostrar las principales estadísticas de los países afectados.
+Una ONG internacional se ha contactado con nuestra empresa de consultoria **Move Trends**, con el fin de estudiar los flujos migratorios de Sudamérica y mostrar las principales estadísticas de los países afectados.
 
 # Objetivos
 
@@ -109,10 +109,9 @@ Para iniciar este proyecto se debía tener claro el contexto de los flujos migra
 
 **Semana 2**
 
-Para continuar con la fase siguiente del proyecto iniciamos con un proceso de ETL extraemos los datos mediante la api del banco mundial 
-, realizamos una limpieza y transformamos los datos para asegurarnos de que estén estandarizados y sean coherentes con los estándares del datawarehouse.  Después realizamos la carga de datos con Python y Pandas.
+Para continuar con la fase siguiente del proyecto iniciamos con un proceso de ETL extraemos los datos mediante la api del banco mundial, realizamos una limpieza y transformamos los datos para asegurarnos de que estén estandarizados y sean coherentes con los estándares del datawarehouse.  Después realizamos la carga de datos con Python y Pandas.
 
- Por último como pasos finales se realizó la carga incremental en el data warehouse el cual ya se encontraba en la nube y se realizó con Airflow. Garantizamos que el data warehouse está actualizado el cual está automatizado Airflow, lo anterior con la finalidad de tener la información en tiempo real para respaldar los procesos de toma de decisiones.
+Por último como pasos finales se realizó la carga incremental en el data warehouse el cual ya se encontraba en la nube y se realizó con Airflow. Garantizamos que el data warehouse está actualizado el cual está automatizado Airflow, lo anterior con la finalidad de tener la información en tiempo real para respaldar los procesos de toma de decisiones.
 
 ## Diagrama de flujo de trabajo
 
